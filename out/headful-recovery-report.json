@@ -1,0 +1,31 @@
+{
+  "ts": "2026-07-02T15:37:10.773Z",
+  "mode": "headful-xvfb",
+  "steps": [
+    {
+      "step": "land",
+      "url": "https://accounts.google.com/v3/signin/accountchooser",
+      "authWall": true,
+      "kind": "chooser",
+      "passwordField": 0,
+      "head": "Loading\nSign in with Google\nChoose an account\nto continue to AI Test Kitchen\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nBefore using this app, you can review AI Test Kitchen’s Privacy Policy and Terms of Service.\nEnglish (Un"
+    },
+    {
+      "step": "r1-click-account",
+      "clicked": true
+    },
+    {
+      "step": "r1-after",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd",
+      "authWall": true,
+      "kind": "verify",
+      "passwordField": 1,
+      "head": "Loading\nSign in with Google\nWelcome\nMASKED@EMAIL\nEnter your password\nShow password\nBefore using this app, you can review AI Test Kitchen’s Privacy Policy and Terms of Service.\nNext\nForgot password?\nEnglish (United States)\nHelp\nPrivacy\nTerms"
+    }
+  ],
+  "result": "password-challenge",
+  "proofs": [
+    "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/headful-land-1783006642035.png",
+    "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/headful-r1-after-1783006652481.png"
+  ]
+}

@@ -473,9 +473,166 @@ async function cmdNlmAudio(args: Args) {
   }); out(!!args.json,res);
 }
 
+// ---------- image gen (ImageFX backend API via labs session token; UI fallback) ----------
+async function cmdImageGen(args: Args) {
+  const prompt = String(args.prompt || '');
+  if (!prompt) { out(!!args.json, { ok: false, error: 'missing --prompt' }); process.exit(2); }
+  const outDir = String(args.out || '/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out'); fs.mkdirSync(outDir, { recursive: true });
+  const count = Math.min(Math.max(Number(args.count || 2), 1), 4);
+  const ratio = String(args.ratio || 'landscape'); // landscape | portrait | square
+  const ratioMap: Record<string, string> = { landscape: 'IMAGE_ASPECT_RATIO_LANDSCAPE', portrait: 'IMAGE_ASPECT_RATIO_PORTRAIT', square: 'IMAGE_ASPECT_RATIO_SQUARE' };
+  const res = await withContext(async (ctx, page) => {
+    const proofs: string[] = []; const saved: any[] = [];
+    // 1) grab the labs session access token (API session can outlive the UI session)
+    let token = '';
+    try { const r = await ctx.request.get(SESSION_API); const j = await r.json().catch(() => null as any); token = j?.access_token || ''; } catch {}
+    let engine = ''; let apiStatus = 0; let apiErr = '';
+    if (token) {
+      engine = 'imagefx-api';
+      const body = {
+        userInput: { candidatesCount: count, prompts: [prompt], seed: null },
+        clientContext: { sessionId: ';' + Date.now(), tool: 'IMAGE_FX' },
+        modelInput: { modelNameType: String(args.model || 'IMAGEN_3_1') },
+        aspectRatio: ratioMap[ratio] || ratioMap.landscape,
+      };
+      try {
+        const resp = await ctx.request.post('https://aisandbox-pa.googleapis.com/v1:runImageFx', {
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}`, Origin: 'https://labs.google', Referer: 'https://labs.google/' },
+          data: body, timeout: 180000,
+        });
+        apiStatus = resp.status();
+        const txt = await resp.text();
+        if (resp.ok()) {
+          const jj = JSON.parse(txt);
+          const imgs = (jj.imagePanels || []).flatMap((p: any) => p.generatedImages || []);
+          for (const im of imgs) {
+            if (im.encodedImage) { const fp = `${outDir}/${tsName('imagefx', 'png')}`; fs.writeFileSync(fp, Buffer.from(im.encodedImage, 'base64')); saved.push({ path: fp, ...fileInfo(fp) }); await new Promise(r => setTimeout(r, 5)); }
+          }
+        } else { apiErr = txt.slice(0, 300).replace(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+/g, 'MASKED@EMAIL'); }
+      } catch (e: any) { apiErr = String(e?.message || e).slice(0, 300); }
+    }
+    // 2) UI fallback: ImageFX page (only if API path produced nothing)
+    if (!saved.length) {
+      engine = 'imagefx-ui';
+      await page.goto('https://labs.google/fx/tools/image-fx', { waitUntil: 'domcontentloaded', timeout: 60000 });
+      await page.waitForTimeout(8000);
+      if (/accounts\.google\.com/.test(page.url())) {
+        const shot = `${outDir}/${tsName('imagefx-authwall', 'png')}`; await page.screenshot({ path: shot, fullPage: true }); proofs.push(shot);
+        return { ok: false, stage: 'blocked-auth-wall', engine, apiStatus, apiErr: apiErr || null, images: [], proofs, note: 'API token missing/expired AND ImageFX UI hit Google account chooser. Refresh cookies, rerun.' };
+      }
+      await dismissModals(page);
+      const netImgs: Buffer[] = [];
+      page.on('response', async (resp) => { try { const ct = (resp.headers()['content-type'] || '').toLowerCase(); if (/^image\/(png|jpeg|webp)/.test(ct)) { const b = await resp.body(); if (b.length > 100000) netImgs.push(b); } } catch {} });
+      let typed = false;
+      for (const sel of ['textarea', 'div[contenteditable="true"]']) { const el = page.locator(sel).first(); if (await el.count().catch(() => 0) && await el.isVisible().catch(() => false)) { try { await el.click({ timeout: 4000 }); await el.fill(prompt); typed = true; break; } catch {} } }
+      const shotT = `${outDir}/${tsName('imagefx-typed', 'png')}`; await page.screenshot({ path: shotT, fullPage: true }); proofs.push(shotT);
+      if (typed) {
+        await clickLikelySubmit(page);
+        const start = Date.now();
+        while (Date.now() - start < Number(args.timeout || 300000)) {
+          await page.waitForTimeout(8000);
+          const imgSrcs = await page.evaluate(() => [...document.querySelectorAll('img')].map(i => i.currentSrc || i.src || '').filter(s => /^(data:image|blob:|https?:).*/.test(s) && !/avatar|logo|icon/i.test(s)));
+          const big = imgSrcs.filter(s => s.startsWith('data:image') ? s.length > 50000 : true);
+          if (big.length || netImgs.length) {
+            for (const s of big.slice(0, count)) { const fp = `${outDir}/${tsName('imagefx', 'png')}`; if (await fetchMediaFromPage(page, s, fp)) saved.push({ path: fp, ...fileInfo(fp) }); }
+            for (const b of netImgs.slice(0, count - saved.length > 0 ? count - saved.length : 0)) { const fp = `${outDir}/${tsName('imagefx', 'png')}`; fs.writeFileSync(fp, b); saved.push({ path: fp, ...fileInfo(fp) }); }
+            if (saved.length) break;
+          }
+        }
+        const shotD = `${outDir}/${tsName('imagefx-done', 'png')}`; await page.screenshot({ path: shotD, fullPage: true }); proofs.push(shotD);
+      }
+    }
+    return { ok: saved.length > 0, stage: saved.length ? 'images-downloaded' : 'no-images', engine, apiStatus: apiStatus || null, apiErr: apiErr || null, count: saved.length, images: saved, proofs, prompt };
+  });
+  out(!!args.json, res);
+}
+
+// ---------- assemble (pure ffmpeg, no Google auth needed) ----------
+function runFfmpeg(fargs: string[]): { ok: boolean; err: string } {
+  try { execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', ...fargs], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }); return { ok: true, err: '' }; }
+  catch (e: any) { return { ok: false, err: String(e?.stderr || e?.message || e).slice(0, 2000) }; }
+}
+function probeDuration(f: string): number {
+  try { return parseFloat(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', f], { encoding: 'utf8' }).trim()) || 0; } catch { return 0; }
+}
+function probeStreams(f: string): string[] {
+  try { return execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type', '-of', 'csv=p=0', f], { encoding: 'utf8' }).trim().split('\n').filter(Boolean); } catch { return []; }
+}
+function mediaProof(f: string) { return { path: f, ...fileInfo(f), duration: probeDuration(f), streams: probeStreams(f) }; }
+
+async function cmdAssembleConcat(args: Args) {
+  const clips = String(args.clips || '').split(',').map(s => s.trim()).filter(Boolean);
+  const outFile = String(args.out || '');
+  if (clips.length < 2 || !outFile) { out(!!args.json, { ok: false, error: 'need --clips a.mp4,b.mp4,... (>=2) and --out FILE' }); process.exit(2); }
+  for (const c of clips) if (!fs.existsSync(c)) { out(!!args.json, { ok: false, error: `clip not found: ${c}` }); process.exit(2); }
+  const size = String(args.size || '1280x720'); const m = size.match(/^(\d+)x(\d+)$/);
+  if (!m) { out(!!args.json, { ok: false, error: 'bad --size, expected WxH like 1280x720' }); process.exit(2); }
+  const [w, h] = [Number(m[1]), Number(m[2])]; const fps = Number(args.fps || 24);
+  fs.mkdirSync(path.dirname(path.resolve(outFile)), { recursive: true });
+  // Normalize every clip (fps/size/SAR, pad to aspect, resample audio or inject silence) then concat via filter_complex
+  const fargs: string[] = [];
+  for (const c of clips) fargs.push('-i', c);
+  const parts: string[] = [];
+  clips.forEach((c, i) => {
+    const hasAudio = probeStreams(c).includes('audio');
+    parts.push(`[${i}:v]scale=${w}:${h}:force_original_aspect_ratio=decrease,pad=${w}:${h}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=${fps},format=yuv420p[v${i}]`);
+    if (hasAudio) parts.push(`[${i}:a]aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo[a${i}]`);
+    else parts.push(`anullsrc=channel_layout=stereo:sample_rate=48000,atrim=duration=${probeDuration(c).toFixed(3)}[a${i}]`);
+  });
+  const inRefs = clips.map((_, i) => `[v${i}][a${i}]`).join('');
+  parts.push(`${inRefs}concat=n=${clips.length}:v=1:a=1[vout][aout]`);
+  fargs.push('-filter_complex', parts.join(';'), '-map', '[vout]', '-map', '[aout]',
+    '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', outFile);
+  const r = runFfmpeg(fargs);
+  const proof = r.ok ? mediaProof(outFile) : null;
+  out(!!args.json, { ok: r.ok && !!proof?.exists, cmd: 'assemble concat', clips: clips.map(c => ({ path: c, duration: probeDuration(c) })), size, fps, out: outFile, result: proof, error: r.ok ? null : r.err });
+  if (!r.ok) process.exit(1);
+}
+
+async function cmdAssembleMix(args: Args) {
+  const audio = String(args.audio || ''); const music = String(args.music || ''); const outFile = String(args.out || '');
+  if (!audio || !music || !outFile) { out(!!args.json, { ok: false, error: 'need --audio VOICE --music BG --out FILE' }); process.exit(2); }
+  for (const f of [audio, music]) if (!fs.existsSync(f)) { out(!!args.json, { ok: false, error: `file not found: ${f}` }); process.exit(2); }
+  const vol = Number(args['music-volume'] || 0.15);
+  const loop = !!args.loop;
+  const voiceDur = probeDuration(audio);
+  fs.mkdirSync(path.dirname(path.resolve(outFile)), { recursive: true });
+  const fargs: string[] = ['-i', audio];
+  if (loop) fargs.push('-stream_loop', '-1');
+  fargs.push('-i', music);
+  // music: volume down (+ loop via -stream_loop), trim to voice duration with fade-out; then amix keeping voice level
+  const fc = `[1:a]volume=${vol},atrim=duration=${voiceDur.toFixed(3)},afade=t=out:st=${Math.max(0, voiceDur - 3).toFixed(3)}:d=3[bg];[0:a][bg]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[mix]`;
+  const isM4a = /\.(m4a|mp4|aac)$/i.test(outFile);
+  fargs.push('-filter_complex', fc, '-map', '[mix]', '-c:a', isM4a ? 'aac' : (/\.wav$/i.test(outFile) ? 'pcm_s16le' : 'libmp3lame'), ...(isM4a ? ['-b:a', '192k'] : []), outFile);
+  const r = runFfmpeg(fargs);
+  const proof = r.ok ? mediaProof(outFile) : null;
+  out(!!args.json, { ok: r.ok && !!proof?.exists, cmd: 'assemble mix', voice: { path: audio, duration: voiceDur }, music: { path: music, duration: probeDuration(music), volume: vol, loop }, out: outFile, result: proof, error: r.ok ? null : r.err });
+  if (!r.ok) process.exit(1);
+}
+
+async function cmdAssembleMux(args: Args) {
+  const video = String(args.video || ''); const audio = String(args.audio || ''); const outFile = String(args.out || '');
+  if (!video || !audio || !outFile) { out(!!args.json, { ok: false, error: 'need --video V --audio A --out FILE' }); process.exit(2); }
+  for (const f of [video, audio]) if (!fs.existsSync(f)) { out(!!args.json, { ok: false, error: `file not found: ${f}` }); process.exit(2); }
+  const fit = String(args.fit || 'shortest'); // shortest | loop-video
+  fs.mkdirSync(path.dirname(path.resolve(outFile)), { recursive: true });
+  const vDur = probeDuration(video); const aDur = probeDuration(audio);
+  const fargs: string[] = [];
+  if (fit === 'loop-video') {
+    fargs.push('-stream_loop', '-1', '-i', video, '-i', audio, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'libx264', '-preset', 'medium', '-crf', '20', '-pix_fmt', 'yuv420p', '-c:a', 'aac', '-b:a', '192k', '-t', aDur.toFixed(3), '-movflags', '+faststart', outFile);
+  } else {
+    fargs.push('-i', video, '-i', audio, '-map', '0:v:0', '-map', '1:a:0', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', outFile);
+  }
+  const r = runFfmpeg(fargs);
+  const proof = r.ok ? mediaProof(outFile) : null;
+  out(!!args.json, { ok: r.ok && !!proof?.exists, cmd: 'assemble mux', fit, video: { path: video, duration: vDur }, audio: { path: audio, duration: aDur }, out: outFile, result: proof, error: r.ok ? null : r.err });
+  if (!r.ok) process.exit(1);
+}
+
 function usage() {
-  console.log(`labgoogle — Google Labs FX CLI
-Commands:
+  console.log(`labgoogle — Google Labs FX / NotebookLM automato
+
+Usage:
   whoami [--json]
   flow gen --prompt "..." [--image PATH] [--out DIR] [--json]
   music gen --prompt "..." [--out DIR] [--json]
@@ -483,7 +640,11 @@ Commands:
   notebooklm create --title "..." [--json]
   notebooklm source add --notebook <id|title> (--url URL | --text "..." | --file PATH) [--json]
   notebooklm chat --notebook <id|title> --prompt "..." [--preset NAME | --system-file PATH] [--json]
-  notebooklm audio-overview --notebook <id|title> [--prompt "..."] [--json]`);
+  notebooklm audio-overview --notebook <id|title> [--prompt "..."] [--json]
+  image gen --prompt "..." [--count N] [--out DIR] [--json]
+  assemble concat --clips a.mp4,b.mp4[,...] --out final.mp4 [--size 1280x720] [--fps 24] [--json]
+  assemble mix --audio voice.m4a --music bg.wav --out mixed.m4a [--music-volume 0.15] [--loop] [--json]
+  assemble mux --video v.mp4 --audio a.m4a --out final.mp4 [--fit shortest|loop-video] [--json]`);
 }
 
 (async () => {
@@ -492,6 +653,13 @@ Commands:
     if (cmd === 'whoami') return await cmdWhoami(args);
     if (cmd === 'flow' && sub === 'gen') return await cmdFlowGen(args);
     if (cmd === 'music' && sub === 'gen') return await cmdMusicGen(args);
+    if (cmd === 'image' && sub === 'gen') return await cmdImageGen(args);
+    if (cmd === 'assemble') {
+      if (sub === 'concat') return await cmdAssembleConcat(args);
+      if (sub === 'mix') return await cmdAssembleMix(args);
+      if (sub === 'mux') return await cmdAssembleMux(args);
+      usage(); process.exit(1);
+    }
     if (cmd === 'notebooklm') {
       const third = process.argv.slice(2)[2] || '';
       if (sub === 'list' || sub === '') return await cmdNlmList(args);

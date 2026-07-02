@@ -2,6 +2,9 @@
 google-flow-vps-profile/
 google-flow-vps-profile-v2/
 google-flow-labgoogle-profile-v3/
+google-flow-login-profile/
+*-profile/
+*-profile-*/
 *storage-state.json
 *storage*state*.json
 cookies*
@@ -19,3 +22,7 @@ out/
 *.m4a
 *.wav
 node_modules/
+
+# Runtime state (local, machine-specific)
+flow-project-registry.json
+*.err

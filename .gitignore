@@ -1,0 +1,15 @@
+# Auth/profile — NEVER commit
+google-flow-vps-profile/
+*storage-state.json
+cookies*
+*.cookies
+.env
+*.pem
+*.key
+
+# Runtime output / internal proofs
+out/
+*.png
+*.mp4
+*.mp3
+node_modules/

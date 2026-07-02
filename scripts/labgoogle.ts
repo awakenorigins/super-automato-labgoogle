@@ -811,7 +811,8 @@ Usage:
   image gen --prompt "..." [--count N] [--out DIR] [--json]
   assemble concat --clips a.mp4,b.mp4[,...] --out final.mp4 [--size 1280x720] [--fps 24] [--json]
   assemble mix --audio voice.m4a --music bg.wav --out mixed.m4a [--music-volume 0.15] [--loop] [--json]
-  assemble mux --video v.mp4 --audio a.m4a --out final.mp4 [--fit shortest|loop-video] [--json]`);
+  assemble mux --video v.mp4 --audio a.m4a --out final.mp4 [--fit shortest|loop-video] [--json]
+  director run --brief "..." [--project "NAME"] [--out DIR] [--json]`);
 }
 
 (async () => {
@@ -841,6 +842,16 @@ Usage:
       if (sub === 'chat') return await cmdNlmChat(args);
       if (sub === 'audio-overview') return await cmdNlmAudio(args);
       return await cmdNlmList(args);
+    }
+    if (cmd === 'director' && sub === 'run') {
+      // Delegate to director.ts with remaining args
+      const dirArgs = process.argv.slice(4); // skip 'director' 'run'
+      const dirScript = path.join(path.dirname(new URL(import.meta.url).pathname), 'director.ts');
+      const shellArgs = dirArgs.map((a: string) => a.includes(' ') ? `"${a.replace(/"/g, '\\"')}"` : a).join(' ');
+      try {
+        execFileSync('npx', ['tsx', dirScript, ...dirArgs], { stdio: 'inherit', env: { ...process.env, NODE_OPTIONS: '' }, timeout: 7200000 });
+      } catch (err: any) { process.exit(err.status || 1); }
+      return;
     }
     usage();
     process.exit(cmd ? 1 : 0);

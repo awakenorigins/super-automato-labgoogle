@@ -1,0 +1,31 @@
+{
+  "steps": [
+    {
+      "step": "gsession",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?continue=https%3A%2F%2Fmyaccount.google.com%2F&dsh=S-1610182437%3A1",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/v3probe-gsession-1783003444252.png"
+    },
+    {
+      "step": "flow-open",
+      "url": "https://labs.google/fx/tools/flow",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/v3probe-flow-1783003461582.png"
+    },
+    {
+      "step": "session-initial",
+      "ok": false
+    },
+    {
+      "step": "round-0",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?client_id=365941595420-v51i7q8ik0crmaoltkhuo5ogb1kekl6f.apps.google",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/v3probe-r0-1783003482768.png"
+    },
+    {
+      "step": "round-1",
+      "url": "https://accounts.google.com/v3/signin/rejected?app_domain=https%3A%2F%2Flabs.google&client_id=365941595420-v51i7q8ik0crm",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/v3probe-r1-1783003493704.png"
+    }
+  ],
+  "labsSignedIn": false
+}

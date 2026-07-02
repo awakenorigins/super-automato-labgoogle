@@ -9,6 +9,7 @@ Purpose: a real *automato* for autonomous content seeding — generate Veo clips
 ```
 bin/labgoogle              # thin wrapper -> npx tsx scripts/labgoogle.ts
 scripts/labgoogle.ts       # main CLI (whoami / flow / music / image / notebooklm / assemble)
+scripts/director.ts        # director orchestrator (brief → script → images → videos → music → assemble)
 scripts/keepalive.ts       # session keep-alive (cron every ~3h)
 scripts/*.ts               # selector probes & debug helpers
 scripts/validate-director-preset.py  # offline contract validator for the director-film preset
@@ -58,6 +59,11 @@ export LABGOOGLE_ACCOUNT="YOUR_ACCOUNT"   # display name or email prefix, never 
 # v0.4.0 — assemble (pure ffmpeg, no Google auth needed)
 ./bin/labgoogle assemble concat --clips a.mp4,b.mp4 --out final.mp4 --size 1280x720 --fps 24 --json
 ./bin/labgoogle assemble mix --audio voice.m4a --music bg.wav --out mixed.m4a --music-volume 0.15 --loop --json
+
+# v0.5.0 — Director Orchestrator (brief → full film pipeline)
+./bin/labgoogle director run \
+  --brief "30-second film about a boy and his first banh chung, Pixar 3D style" \
+  --project "My-Film" --json
 ./bin/labgoogle assemble mux --video v.mp4 --audio a.m4a --out final.mp4 --fit loop-video --json
 ```
 
@@ -87,6 +93,18 @@ No Google auth needed — pure local ffmpeg (6.x):
 ### Image gen engine choice
 
 `image gen` tries the **ImageFX backend API** (`aisandbox-pa.googleapis.com/v1:runImageFx`) first using the labs session `access_token` — headless, fast, returns base64 PNGs, and it is the same Imagen backend that Flow's image ingredients use. If the token is dead it falls back to the **ImageFX UI** (`labs.google/fx/tools/image-fx`) with network-level image capture. Flow's own UI image mode was probed but is gated behind the same interactive session, so ImageFX is the primary engine.
+
+## Status v0.5.0 (2026-07-03, Director Orchestrator)
+
+| Command | Status | Notes |
+|---|---|---|
+| `director run --brief` | ✅ E2E PASS | Brief → 4-scene script → 4 Veo videos → MusicFX score → concat+mux = **film-final.mp4** (40s, 1280×720, H.264+AAC, 11MB) |
+| Script generation | ✅ PASS (fallback) | NLM auth-walled; built-in LLM fallback generated 4-scene JSON with verbatim character sheets |
+| Veo video gen (4 scenes) | ✅ 4/4 PASS | Each ~10s, all rendered+downloaded successfully via Flow |
+| MusicFX background score | ✅ PASS | PCM WAV 16-bit stereo 48kHz |
+| ffmpeg assemble | ✅ PASS | concat 4 clips → film-raw.mp4, mux with music at 18% volume → film-final.mp4 |
+| ImageFX keyframes | ❌ 0/4 | API token expired during run; videos rendered prompt-only (no keyframe reference) |
+| Checkpoint/resume | ✅ PASS | `state.json` saved after every step |
 
 ## Status v0.4.1 (2026-07-02, round 5)
 

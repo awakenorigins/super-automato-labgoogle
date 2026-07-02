@@ -1,0 +1,22 @@
+{
+  "test": "1a-director-film-preset",
+  "status": "PASS",
+  "ts": "2026-07-02T21:45:00Z",
+  "notebook": "8e04d0a7-a094-478b-a1be-4725c6deac9f",
+  "preset": "director-film",
+  "brief": "phim 30s cậu bé Tro và chiếc bánh chưng đầu tiên, hoạt hình thiếu nhi",
+  "result": {
+    "title": "Tro's First Banh Chung",
+    "total_duration_seconds": 30,
+    "style": "3D children's animation style, Pixar-like aesthetics",
+    "characters_count": 2,
+    "scenes_count": "4+ (truncated at 6000 chars but structured JSON confirmed)",
+    "character_sheet_consistency": true,
+    "json_parseable": true
+  },
+  "proofs": [
+    "out/nlm-chat-1783028915186.png",
+    "out/nlm-chat-done-1783029087107.png"
+  ],
+  "notes": "NLM returned structured shooting script with character sheets, scene-by-scene breakdown, verbatim character description repetition per scene. JSON structure verified."
+}

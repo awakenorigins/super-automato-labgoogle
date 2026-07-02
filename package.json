@@ -1,6 +1,6 @@
 {
   "name": "super-automato-labgoogle",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "description": "Agent-native CLI harness to automate Google Labs FX (Flow/Veo, MusicFX) and NotebookLM (chat, Audio Overview podcasts) via a persistent Playwright profile — built for autonomous content seeding.",
   "license": "MIT",
   "type": "module",

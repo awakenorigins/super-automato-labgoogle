@@ -15,7 +15,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { execFileSync } from 'child_process';
 
-const PROFILE = process.env.LABGOOGLE_PROFILE || '/root/.openclaw/workspace/google-flow-vps-profile-v2';
+const PROFILE = process.env.LABGOOGLE_PROFILE || '/root/.openclaw/workspace/google-flow-login-profile';
 const STORAGE = process.env.LABGOOGLE_STORAGE || '/root/.openclaw/workspace/google-flow-vps-storage-state-v2.json';
 const FLOW_URL = 'https://labs.google/fx/tools/flow';
 const MUSIC_URL = 'https://labs.google/fx/tools/music-fx';
@@ -150,6 +150,19 @@ async function dismissModals(page: Page): Promise<number> {
 // Flow homepage lists projects as cards linking to /project/<id>. We reuse an
 // existing project by name instead of spamming "New project" on every gen.
 const DEFAULT_PROJECT = 'Automato-Sandbox';
+// Local name->id registry so reuse is deterministic even when Flow's UI hides project titles.
+const PROJECT_REGISTRY = '/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/flow-project-registry.json';
+function registryLoad(): Record<string,string> {
+  try { return JSON.parse(fs.readFileSync(PROJECT_REGISTRY, 'utf8')); } catch { return {}; }
+}
+function registryGet(name: string): string {
+  const r = registryLoad(); return r[name.toLowerCase()] || '';
+}
+function registrySet(name: string, id: string) {
+  if (!name || !id) return;
+  const r = registryLoad(); r[name.toLowerCase()] = id;
+  try { fs.writeFileSync(PROJECT_REGISTRY, JSON.stringify(r, null, 2)); } catch {}
+}
 async function flowListProjects(page: Page): Promise<Array<{ name: string; url: string; id: string }>> {
   return await page.evaluate(() => {
     const seen = new Set<string>();
@@ -197,12 +210,28 @@ async function flowRenameProject(page: Page, name: string): Promise<boolean> {
 }
 /** Open (or create+rename) a Flow project by name. Returns state incl. projectUrl. */
 async function flowEnsureProject(page: Page, name: string, outDir: string, proofs: string[]): Promise<{ ok: boolean; reused: boolean; created: boolean; renamed: boolean; projectUrl: string; error?: string }> {
+  // 1) Deterministic reuse: if we created this named project before, open its saved id directly.
+  const savedId = registryGet(name);
+  if (savedId) {
+    try {
+      const url = `${FLOW_URL.replace(/\/$/, '')}/project/${savedId}`;
+      await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      await page.waitForTimeout(8000);
+      if (!/accounts\.google\.com/.test(page.url()) && /\/project\//.test(page.url())) {
+        await dismissModals(page);
+        const s2 = `${outDir}/${tsName('flow-project-open', 'png')}`; await page.screenshot({ path: s2, fullPage: true }).catch(() => {}); proofs.push(s2);
+        return { ok: true, reused: true, created: false, renamed: false, projectUrl: page.url().replace(/[?#].*$/, '') };
+      }
+    } catch {}
+    // saved id no longer valid -> fall through to home scan / recreate
+  }
   const home = await flowOpenHome(page);
   if (home.authWall) { const sh = `${outDir}/${tsName('flow-authwall', 'png')}`; await page.screenshot({ path: sh }).catch(() => {}); proofs.push(sh); return { ok: false, reused: false, created: false, renamed: false, projectUrl: '', error: 'blocked-auth-wall' }; }
   const shot = `${outDir}/${tsName('flow-home', 'png')}`; await page.screenshot({ path: shot, fullPage: true }).catch(() => {}); proofs.push(shot);
   const projects = await flowListProjects(page);
-  const hit = projects.find(p => p.name.toLowerCase() === name.toLowerCase()) || projects.find(p => p.name.toLowerCase().includes(name.toLowerCase()));
+  const hit = (name && (projects.find(p => p.name.toLowerCase() === name.toLowerCase()) || projects.find(p => p.name && p.name.toLowerCase().includes(name.toLowerCase())))) || undefined;
   if (hit) {
+    registrySet(name, hit.id);
     try {
       await page.goto(hit.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
       await page.waitForTimeout(8000); await dismissModals(page);
@@ -217,7 +246,11 @@ async function flowEnsureProject(page: Page, name: string, outDir: string, proof
   await page.waitForTimeout(9000); await dismissModals(page); await page.keyboard.press('Escape').catch(() => {});
   const renamed = await flowRenameProject(page, name);
   const s3 = `${outDir}/${tsName('flow-project-created', 'png')}`; await page.screenshot({ path: s3, fullPage: true }).catch(() => {}); proofs.push(s3);
-  return { ok: true, reused: false, created: true, renamed, projectUrl: page.url().replace(/[?#].*$/, '') };
+  // Persist the new project's id under this name so the NEXT gen reuses it (no more spam).
+  const newUrl = page.url().replace(/[?#].*$/, '');
+  const newId = (newUrl.match(/\/project\/([a-zA-Z0-9_-]+)/) || [])[1] || '';
+  if (newId) registrySet(name, newId);
+  return { ok: true, reused: false, created: true, renamed, projectUrl: newUrl };
 }
 async function cmdFlowProjects(args: Args) {
   const outDir = String(args.out || '/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out'); fs.mkdirSync(outDir, { recursive: true });

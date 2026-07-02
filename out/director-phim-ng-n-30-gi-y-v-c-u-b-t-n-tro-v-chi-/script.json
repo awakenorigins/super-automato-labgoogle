@@ -1,0 +1,61 @@
+{
+  "title": "Tro and the First Bánh Chưng",
+  "total_duration_seconds": 30,
+  "style": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic",
+  "characters": [
+    {
+      "name": "Tro",
+      "sheet": "A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character"
+    },
+    {
+      "name": "Grandmother",
+      "sheet": "A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character"
+    }
+  ],
+  "scenes": [
+    {
+      "number": 1,
+      "duration_seconds": 7,
+      "shot_type": "wide",
+      "action": "A warm Vietnamese kitchen during Tết preparations. Grandmother sits on a low stool wrapping bánh chưng. Young Tro watches with wide eyes, fascinated.",
+      "character_sheet": "Tro: A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character\nGrandmother: A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character",
+      "image_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Wide shot of a warm Vietnamese traditional kitchen decorated with red Tết banners and kumquat trees. A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character stands watching with wide amazed eyes. A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character sits on a low wooden stool, hands deftly wrapping green banana leaves around sticky rice. Warm golden afternoon light streams through wooden shutters. Piles of green banana leaves, mung beans, and pork on a wooden table.",
+      "video_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Wide shot of a warm Vietnamese traditional kitchen decorated with red Tết banners and kumquat trees. A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character stands watching with wide amazed eyes, then steps closer. A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character sits on a low wooden stool, hands deftly wrapping green banana leaves around sticky rice, she looks up and smiles at Tro. Warm golden afternoon light streams through wooden shutters. Slow dolly-in toward the pair. Piles of green banana leaves, mung beans, and pork on a wooden table.",
+      "mood_lighting": "Warm, nostalgic, golden afternoon light, amber and green palette",
+      "sound": "Soft ambient kitchen sounds, distant Tết firecrackers"
+    },
+    {
+      "number": 2,
+      "duration_seconds": 6,
+      "shot_type": "medium",
+      "action": "Grandmother gently guides Tro small hands to fold a banana leaf. Tro concentrates intensely, tongue poking out in effort.",
+      "character_sheet": "Tro: A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character\nGrandmother: A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character",
+      "image_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Medium shot, close framing. A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character with gentle hands guiding A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character as he carefully folds a large green banana leaf on a wooden table. Tro's face shows intense concentration with his tongue poking out. Warm kitchen background with red Tết decorations soft-focused. Soft warm directional light from the left.",
+      "video_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Medium shot, close framing. A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character with gentle hands guiding A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character as he carefully folds a large green banana leaf on a wooden table. Tro's face shows intense concentration with his tongue poking out. Grandmother nods encouragingly. Tro's small hands carefully press down on the leaf. Static tripod shot with subtle rack focus. Warm kitchen background with red Tết decorations soft-focused.",
+      "mood_lighting": "Tender, focused, warm side-lighting, soft shadows",
+      "sound": "Rustling banana leaves, grandmother humming softly"
+    },
+    {
+      "number": 3,
+      "duration_seconds": 7,
+      "shot_type": "close-up",
+      "action": "Tro small hands carefully place sticky rice and mung bean filling onto the banana leaf, then fold it into a square shape. The wrapping is imperfect but heartfelt.",
+      "character_sheet": "Tro: A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character",
+      "image_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Close-up shot of small childish hands belonging to A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character placing white sticky rice and yellow mung bean paste onto a bright green banana leaf. The hands are small and careful. Wooden table surface. Warm soft backlighting creating a golden rim. Shallow depth of field.",
+      "video_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Close-up shot of small childish hands belonging to A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character carefully placing white sticky rice and yellow mung bean paste onto a bright green banana leaf, then folding the leaf edges inward to form an imperfect but charming square shape. The hands are small, slightly clumsy but determined. Slow motion. Wooden table surface. Warm soft backlighting creating a golden rim. Slow dolly-in. Shallow depth of field.",
+      "mood_lighting": "Intimate, warm backlight, golden rim lighting, green and gold palette",
+      "sound": "Gentle folding sounds, soft instrumental music swell"
+    },
+    {
+      "number": 4,
+      "duration_seconds": 5,
+      "shot_type": "medium",
+      "action": "Tro proudly holds up his first completed bánh chưng — lumpy and imperfect but tied with bamboo string. Grandmother beams with pride, whole family gathered around clapping.",
+      "character_sheet": "Tro: A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character\nGrandmother: A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character",
+      "image_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Medium shot. A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character stands proudly holding up a small, lumpy, imperfectly-wrapped bánh chưng tied with green bamboo string, his face beaming with the biggest smile. A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character stands behind him, both hands on his shoulders, beaming with pride, tears of joy in her eyes. Behind them, a Vietnamese family of 5 clapping and smiling. Red Tết decorations, kumquat tree with golden fruits. Warm golden evening light. Celebratory atmosphere.",
+      "video_prompt": "3D animated Pixar-style, warm soft lighting, vibrant colors, childrens film aesthetic. Medium shot. A 7-year-old Vietnamese boy named Tro with round face, bright curious eyes, short black hair with a small cowlick, warm tan skin, wearing a red áo dài with golden dragon embroidery, brown cloth sandals, small hands, cheerful expression, Pixar-style 3D animated character stands proudly holding up a small, lumpy, imperfectly-wrapped bánh chưng tied with green bamboo string, his face beaming with the biggest smile. He lifts it higher. A 70-year-old Vietnamese grandmother with kind wrinkled face, silver hair in a neat bun, warm brown eyes behind small round glasses, wearing a deep purple áo bà ba with white trim, gentle smile, Pixar-style 3D animated character stands behind him, both hands on his shoulders, beaming with pride, tears of joy in her eyes. Behind them, a Vietnamese family of 5 clapping and smiling. Camera slowly pulls back to reveal the warm family scene. Red Tết decorations, kumquat tree with golden fruits. Warm golden evening light. Slow crane-up revealing the full family.",
+      "mood_lighting": "Joyful, celebratory, warm golden evening light, red and gold palette",
+      "sound": "Family laughter, clapping, distant Tết fireworks, heartwarming music crescendo"
+    }
+  ]
+}

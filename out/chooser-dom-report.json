@@ -1,0 +1,55 @@
+{
+  "ts": "2026-07-02T15:34:31.030Z",
+  "url": "https://accounts.google.com/v3/signin/accountchooser",
+  "candidates": [
+    {
+      "tag": "LI",
+      "role": null,
+      "dataId": false,
+      "authuser": null,
+      "visible": true,
+      "rect": {
+        "x": 459,
+        "y": 344,
+        "w": 448,
+        "h": 60
+      },
+      "text": "From Mars MASKED@EMAIL out"
+    },
+    {
+      "tag": "LI",
+      "role": null,
+      "dataId": false,
+      "authuser": null,
+      "visible": true,
+      "rect": {
+        "x": 459,
+        "y": 404,
+        "w": 448,
+        "h": 48
+      },
+      "text": "Use another account"
+    }
+  ],
+  "target": {
+    "tag": "LI",
+    "role": null,
+    "dataId": false,
+    "authuser": null,
+    "visible": true,
+    "rect": {
+      "x": 459,
+      "y": 344,
+      "w": 448,
+      "h": 60
+    },
+    "text": "From Mars MASKED@EMAIL out"
+  },
+  "afterClick": {
+    "url": "https://accounts.google.com/v3/signin/rejected",
+    "authWall": true,
+    "passwordField": 0,
+    "head": "Couldn’t sign you in\n\nThis browser or app may not be secure. Learn more\n\nTry using a different browser. If you’re already using a supported browser, you can try again to sign in.\n\nTry again\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canada)\nFrançais (Fr"
+  },
+  "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/chooser-after-click-1783006481308.png"
+}

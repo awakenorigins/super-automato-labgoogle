@@ -146,6 +146,135 @@ async function dismissModals(page: Page): Promise<number> {
   }
   return dismissed;
 }
+// ---------- Flow project management (v0.4.1) ----------
+// Flow homepage lists projects as cards linking to /project/<id>. We reuse an
+// existing project by name instead of spamming "New project" on every gen.
+const DEFAULT_PROJECT = 'Automato-Sandbox';
+async function flowListProjects(page: Page): Promise<Array<{ name: string; url: string; id: string }>> {
+  return await page.evaluate(() => {
+    const seen = new Set<string>();
+    const outArr: any[] = [];
+    for (const a of document.querySelectorAll('a[href*="/project/"]')) {
+      const href = (a as HTMLAnchorElement).href || '';
+      const id = (href.match(/\/project\/([a-zA-Z0-9_-]+)/) || [])[1] || '';
+      if (!id || seen.has(id)) continue;
+      seen.add(id);
+      // Prefer a heading/title element inside the card; fallback to full card text
+      const holder = a.closest('[class*="card" i], li, article') || a;
+      const titleEl = holder.querySelector('h1,h2,h3,h4,[class*="title" i]');
+      let name = ((titleEl?.textContent || a.textContent || '')).replace(/\s+/g, ' ').trim();
+      name = name.replace(/\b(Edit project|Open|more_vert|Delete)\b/gi, '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      outArr.push({ name, url: href.replace(/[?#].*$/, ''), id });
+    }
+    return outArr;
+  }).catch(() => []);
+}
+async function flowOpenHome(page: Page): Promise<{ authWall: boolean }> {
+  await page.goto(FLOW_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(7000);
+  if (/accounts\.google\.com/.test(page.url())) return { authWall: true };
+  await dismissModals(page);
+  return { authWall: false };
+}
+async function flowRenameProject(page: Page, name: string): Promise<boolean> {
+  // Inside the project editor: title is usually an editable "Untitled project" element
+  // (contenteditable / input / button that turns into an input on click).
+  const titleRect = await page.evaluate(() => {
+    const els = [...document.querySelectorAll('input[value*="Untitled" i], [contenteditable="true"], h1, h2, button, [role="textbox"]')] as HTMLElement[];
+    const el = els.find(e => e.offsetParent && /Untitled( project)?|New project/i.test(((e as HTMLInputElement).value || e.textContent || '')) && e.getBoundingClientRect().y < 200);
+    if (!el) return null;
+    const r = el.getBoundingClientRect();
+    return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+  }).catch(() => null as any);
+  if (!titleRect) return false;
+  try {
+    await page.mouse.click(titleRect.x, titleRect.y); await page.waitForTimeout(1200);
+    await page.keyboard.press('Control+a'); await page.keyboard.insertText(name);
+    await page.keyboard.press('Enter'); await page.waitForTimeout(2000);
+    const now = await page.evaluate(() => (document.title + ' ' + (document.body.innerText || '').slice(0, 600)));
+    return now.includes(name);
+  } catch { return false; }
+}
+/** Open (or create+rename) a Flow project by name. Returns state incl. projectUrl. */
+async function flowEnsureProject(page: Page, name: string, outDir: string, proofs: string[]): Promise<{ ok: boolean; reused: boolean; created: boolean; renamed: boolean; projectUrl: string; error?: string }> {
+  const home = await flowOpenHome(page);
+  if (home.authWall) { const sh = `${outDir}/${tsName('flow-authwall', 'png')}`; await page.screenshot({ path: sh }).catch(() => {}); proofs.push(sh); return { ok: false, reused: false, created: false, renamed: false, projectUrl: '', error: 'blocked-auth-wall' }; }
+  const shot = `${outDir}/${tsName('flow-home', 'png')}`; await page.screenshot({ path: shot, fullPage: true }).catch(() => {}); proofs.push(shot);
+  const projects = await flowListProjects(page);
+  const hit = projects.find(p => p.name.toLowerCase() === name.toLowerCase()) || projects.find(p => p.name.toLowerCase().includes(name.toLowerCase()));
+  if (hit) {
+    try {
+      await page.goto(hit.url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+      await page.waitForTimeout(8000); await dismissModals(page);
+      const s2 = `${outDir}/${tsName('flow-project-open', 'png')}`; await page.screenshot({ path: s2, fullPage: true }).catch(() => {}); proofs.push(s2);
+      return { ok: true, reused: true, created: false, renamed: false, projectUrl: page.url().replace(/[?#].*$/, '') };
+    } catch (e: any) { return { ok: false, reused: false, created: false, renamed: false, projectUrl: hit.url, error: 'open-failed: ' + String(e?.message || e).slice(0, 120) }; }
+  }
+  // not found -> create new, then rename immediately
+  const nb = page.locator('button:has-text("New project"), [role="button"]:has-text("New project")').first();
+  if (!(await nb.count().catch(() => 0))) return { ok: false, reused: false, created: false, renamed: false, projectUrl: '', error: 'new-project-button-not-found' };
+  await nb.click({ timeout: 8000 }).catch(() => {});
+  await page.waitForTimeout(9000); await dismissModals(page); await page.keyboard.press('Escape').catch(() => {});
+  const renamed = await flowRenameProject(page, name);
+  const s3 = `${outDir}/${tsName('flow-project-created', 'png')}`; await page.screenshot({ path: s3, fullPage: true }).catch(() => {}); proofs.push(s3);
+  return { ok: true, reused: false, created: true, renamed, projectUrl: page.url().replace(/[?#].*$/, '') };
+}
+async function cmdFlowProjects(args: Args) {
+  const outDir = String(args.out || '/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out'); fs.mkdirSync(outDir, { recursive: true });
+  const res = await withContext(async (_ctx, page) => {
+    const s = await getSession(page); if (!s.signedIn) return { ok: false, error: 'not signed in — refresh cookies from PC' };
+    const home = await flowOpenHome(page);
+    const shot = `${outDir}/${tsName('flow-projects', 'png')}`; await page.screenshot({ path: shot, fullPage: true }).catch(() => {});
+    if (home.authWall) return { ok: false, stage: 'blocked-auth-wall', url: page.url().replace(/[?#].*$/, ''), projects: [], proofs: [shot] };
+    const projects = await flowListProjects(page);
+    return { ok: true, stage: 'listed', count: projects.length, projects, proofs: [shot] };
+  });
+  out(!!args.json, res);
+}
+async function cmdFlowProjectDelete(args: Args) {
+  const name = String(args.name || '');
+  if (!name) { out(!!args.json, { ok: false, error: 'missing --name' }); process.exit(2); }
+  const outDir = String(args.out || '/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out'); fs.mkdirSync(outDir, { recursive: true });
+  const res = await withContext(async (_ctx, page) => {
+    const s = await getSession(page); if (!s.signedIn) return { ok: false, error: 'not signed in — refresh cookies from PC' };
+    const proofs: string[] = [];
+    const home = await flowOpenHome(page);
+    if (home.authWall) { const sh = `${outDir}/${tsName('flow-del-authwall', 'png')}`; await page.screenshot({ path: sh }).catch(() => {}); return { ok: false, stage: 'blocked-auth-wall', proofs: [sh] }; }
+    const before = await flowListProjects(page);
+    const hit = before.find(p => p.name.toLowerCase() === name.toLowerCase());
+    const sh0 = `${outDir}/${tsName('flow-del-before', 'png')}`; await page.screenshot({ path: sh0, fullPage: true }).catch(() => {}); proofs.push(sh0);
+    if (!hit) return { ok: false, stage: 'project-not-found', name, projects: before, proofs };
+    // open the card's own 3-dot menu (more_vert button inside the same card container)
+    const menu = await page.evaluate((pid) => {
+      const a = [...document.querySelectorAll('a[href*="/project/"]')].find(x => (x as HTMLAnchorElement).href.includes(pid)) as HTMLElement | undefined;
+      if (!a) return null;
+      const holder = a.closest('[class*="card" i], li, article') || a.parentElement;
+      const btn = holder ? [...holder.querySelectorAll('button')].find(b => /more_vert|more|options|menu/i.test((b.textContent || '') + (b.getAttribute('aria-label') || ''))) as HTMLElement | undefined : undefined;
+      if (!btn) return null;
+      const r = btn.getBoundingClientRect();
+      return { x: r.x + r.width / 2, y: r.y + r.height / 2 };
+    }, hit.id).catch(() => null as any);
+    if (!menu) return { ok: false, stage: 'project-menu-not-found', name, proofs };
+    await page.mouse.click(menu.x, menu.y); await page.waitForTimeout(2500);
+    const sh1 = `${outDir}/${tsName('flow-del-menu', 'png')}`; await page.screenshot({ path: sh1 }).catch(() => {}); proofs.push(sh1);
+    const del = page.locator('[role="menuitem"]:has-text("Delete"), button:has-text("Delete")').first();
+    if (!(await del.count().catch(() => 0))) return { ok: false, stage: 'delete-item-not-found', name, proofs };
+    await del.click({ timeout: 6000 }).catch(() => {});
+    await page.waitForTimeout(2500);
+    // confirm dialog if any
+    const confirm = page.locator('[role="dialog"] button:has-text("Delete"), [role="dialog"] button:has-text("Confirm"), [aria-modal="true"] button:has-text("Delete")').first();
+    if (await confirm.count().catch(() => 0)) await confirm.click({ timeout: 6000 }).catch(() => {});
+    await page.waitForTimeout(5000);
+    await page.reload({ waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
+    await page.waitForTimeout(6000);
+    const after = await flowListProjects(page);
+    const gone = !after.some(p => p.id === hit.id);
+    const sh2 = `${outDir}/${tsName('flow-del-after', 'png')}`; await page.screenshot({ path: sh2, fullPage: true }).catch(() => {}); proofs.push(sh2);
+    return { ok: gone, stage: gone ? 'deleted' : 'delete-not-confirmed', name, id: hit.id, before: before.length, after: after.length, proofs };
+  });
+  out(!!args.json, res);
+}
+
 async function clickLikelySubmit(page: Page): Promise<boolean> {
   const sels=['button[aria-label*="Generate" i]','button:has-text("Generate")','button[aria-label*="Create" i]','button:has-text("Create")','button[type="submit"]','button[aria-label*="Send" i]'];
   for (const sel of sels) { const b=page.locator(sel).last(); if (await b.count().catch(()=>0)) { try { await b.click({timeout:6000}); return true; } catch {} } }
@@ -158,12 +287,15 @@ async function cmdFlowGen(args: Args) {
   if (!prompt) { out(!!args.json, { ok: false, error: 'missing --prompt' }); process.exit(2); }
   const outDir = String(args.out || '/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out'); fs.mkdirSync(outDir,{recursive:true});
   const submit = !!args.submit; const maxWaitMs = Number(args.timeout || 600000);
+  const projectName = String(args.project || DEFAULT_PROJECT);
   const res = await withContext(async (_ctx, page) => {
     const s = await getSession(page); if (!s.signedIn) return { ok:false, error:'not signed in — refresh cookies from PC' };
-    await page.goto(FLOW_URL,{waitUntil:'domcontentloaded',timeout:60000}); await page.waitForTimeout(7000);
-    await dismissModals(page);
-    let opened=false; const nb=page.locator('button:has-text("New project"), [role="button"]:has-text("New project")').first(); if(await nb.count().catch(()=>0)){try{await nb.click({timeout:8000}); opened=true;}catch{}}
-    await page.waitForTimeout(9000); await dismissModals(page); await page.keyboard.press('Escape').catch(()=>{}); const proofs:string[]=[]; const shot=`${outDir}/${tsName('flow-composer','png')}`; await page.screenshot({path:shot,fullPage:true}); proofs.push(shot);
+    const proofs:string[]=[];
+    // v0.4.1: reuse a named project instead of spamming "New project" every run.
+    const proj = await flowEnsureProject(page, projectName, outDir, proofs);
+    if (!proj.ok) return { ok:false, stage: proj.error || 'project-open-failed', project: projectName, proofs };
+    const opened = proj.created;
+    await page.waitForTimeout(3000); await dismissModals(page); await page.keyboard.press('Escape').catch(()=>{}); const shot=`${outDir}/${tsName('flow-composer','png')}`; await page.screenshot({path:shot,fullPage:true}); proofs.push(shot);
     let typed=false, usedSel='';
     // New Flow agent composer: focus visible contenteditable via evaluate + insertText
     const ceRect = await page.evaluate(() => { const ce=[...document.querySelectorAll('[contenteditable="true"]')].find(e=>(e as HTMLElement).offsetParent) as HTMLElement|undefined; if(!ce) return null; ce.focus(); const r=ce.getBoundingClientRect(); return {x:r.x+r.width/2,y:r.y+r.height/2}; }).catch(()=>null as any);
@@ -193,7 +325,7 @@ async function cmdFlowGen(args: Args) {
       }
     }
     const finfo=downloadedPath?fileInfo(downloadedPath):null;
-    return { ok:true, newProjectOpened:opened, approved, stage:!typed?'composer-open-no-field':!submitted?'prompt-typed':rendered?(downloadedPath?'rendered-downloaded':'rendered-no-download'):'submitted-render-timeout', selectorUsed:usedSel||null, rendered, downloadedPath:downloadedPath||null, fileInfo:finfo, videoUrl:videoUrl?videoUrl.slice(0,120):null, lastState, note: rendered && downloadedPath?'Video rendered + downloaded.': rendered?'Video rendered; download failed.': submitted?'Submitted but render did not finish within timeout.': typed?'Prompt typed. Pass --submit to render.':'Composer opened but prompt field not found.', proofs, prompt };
+    return { ok:true, project: projectName, projectUrl: proj.projectUrl, projectReused: proj.reused, projectCreated: proj.created, projectRenamed: proj.renamed, newProjectOpened:opened, approved, stage:!typed?'composer-open-no-field':!submitted?'prompt-typed':rendered?(downloadedPath?'rendered-downloaded':'rendered-no-download'):'submitted-render-timeout', selectorUsed:usedSel||null, rendered, downloadedPath:downloadedPath||null, fileInfo:finfo, videoUrl:videoUrl?videoUrl.slice(0,120):null, lastState, note: rendered && downloadedPath?'Video rendered + downloaded.': rendered?'Video rendered; download failed.': submitted?'Submitted but render did not finish within timeout.': typed?'Prompt typed. Pass --submit to render.':'Composer opened but prompt field not found.', proofs, prompt };
   }); out(!!args.json,res);
 }
 
@@ -634,7 +766,9 @@ function usage() {
 
 Usage:
   whoami [--json]
-  flow gen --prompt "..." [--image PATH] [--out DIR] [--json]
+  flow gen --prompt "..." [--project "NAME"] [--image PATH] [--out DIR] [--json]
+  flow projects [--json]
+  flow project delete --name "..." [--json]
   music gen --prompt "..." [--out DIR] [--json]
   notebooklm list [--json]
   notebooklm create --title "..." [--json]
@@ -652,6 +786,12 @@ Usage:
   try {
     if (cmd === 'whoami') return await cmdWhoami(args);
     if (cmd === 'flow' && sub === 'gen') return await cmdFlowGen(args);
+    if (cmd === 'flow' && sub === 'projects') return await cmdFlowProjects(args);
+    if (cmd === 'flow' && sub === 'project') {
+      const third = process.argv.slice(2)[2] || '';
+      if (third === 'delete') return await cmdFlowProjectDelete(args);
+      usage(); process.exit(1);
+    }
     if (cmd === 'music' && sub === 'gen') return await cmdMusicGen(args);
     if (cmd === 'image' && sub === 'gen') return await cmdImageGen(args);
     if (cmd === 'assemble') {

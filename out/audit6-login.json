@@ -1,0 +1,61 @@
+{
+  "steps": [
+    {
+      "step": "open-accounts",
+      "url": "https://accounts.google.com/v3/signin/confirmidentifier?authuser=0&continue=https%3A%2F%2Faccounts.google.com%2F&dsh=S-1775580992%3A1783012513723043&f",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s1-accounts-1783012520118.png"
+    },
+    {
+      "step": "clicked-account-row",
+      "url": "https://accounts.google.com/v3/signin/confirmidentifier?authuser=0&continue=https%3A%2F%2Faccounts.google.com%2F&dsh=S-1775580992%3A1783012513723043&f",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s2-account-row-1783012526292.png"
+    },
+    {
+      "step": "no-email-input-visible",
+      "url": "https://accounts.google.com/v3/signin/confirmidentifier?authuser=0&continue=https%3A%2F%2Faccounts.google.com%2F&dsh=S-1775580992%3A1783012513723043&f",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s3-no-email-1783012526489.png"
+    },
+    {
+      "step": "no-password-input",
+      "url": "https://accounts.google.com/v3/signin/confirmidentifier?authuser=0&continue=https%3A%2F%2Faccounts.google.com%2F&dsh=S-1775580992%3A1783012513723043&f",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s4-no-pw-1783012529685.png",
+      "text": "Loading\nVerify that it’s you\nMASKED@EMAIL\nTo help keep your account secure, Google needs to verify that it’s you. Please sign in again to continue.\nNext\nEnglish (United Kingdom)\nHelp\nPrivacy\nTerms"
+    },
+    {
+      "step": "post-login-check",
+      "url": "https://accounts.google.com/v3/signin/confirmidentifier?authuser=0&continue=https%3A%2F%2Faccounts.google.com%2F&dsh=S-1775580992%3A1783012513723043&f",
+      "signedInGoogle": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s6-post-login-1783012531808.png"
+    },
+    {
+      "step": "flow-check",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?client_id=365941595420-v51i7q8ik0crmaoltkhuo5ogb1kekl6f.apps.googleusercontent.com&code_challenge",
+      "authWall": true,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s7-flow-1783012546565.png"
+    },
+    {
+      "step": "nlm-check",
+      "url": "https://accounts.google.com/v3/signin/confirmidentifier?authuser=0&continue=https%3A%2F%2Fnotebooklm.google.com%2Flogin%3Fcontinue%3Dhttps%3A%2F%2Fnot",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s8-nlm-1783012555838.png"
+    },
+    {
+      "step": "imagefx-check",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?client_id=365941595420-v51i7q8ik0crmaoltkhuo5ogb1kekl6f.apps.googleusercontent.com&code_challenge",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/login-s9-imagefx-1783012565883.png"
+    }
+  ],
+  "ts": "2026-07-02T17:15:00.299Z",
+  "flowSessionAPI": {
+    "signedIn": false,
+    "len": 685
+  },
+  "loginResult": "NO-PW-ENTERED",
+  "audit": {
+    "flowUI": "FAIL",
+    "nlmUI": "FAIL",
+    "imagefxUI": "FAIL",
+    "flowSession": "FAIL"
+  }
+}

@@ -1,0 +1,258 @@
+{
+ "checks": [
+  {
+   "check": "has ---HUMAN--- separator",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "JSON parses",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "top-level field 'title'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "top-level field 'total_duration_seconds'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "top-level field 'style'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "top-level field 'characters'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "top-level field 'scenes'",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene count 4-6 for 30s",
+   "ok": true,
+   "detail": "got 5"
+  },
+  {
+   "check": "durations sum ~= total",
+   "ok": true,
+   "detail": "sum=30"
+  },
+  {
+   "check": "scene 1 fields complete",
+   "ok": true,
+   "detail": "missing=[]"
+  },
+  {
+   "check": "scene 1 duration 5-8s",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "check": "scene 1 sheet VERBATIM in character_sheet",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 1 sheet VERBATIM in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 1 sheet VERBATIM in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 1 style verbatim in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 1 style verbatim in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 1 video_prompt has camera movement",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 2 fields complete",
+   "ok": true,
+   "detail": "missing=[]"
+  },
+  {
+   "check": "scene 2 duration 5-8s",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "check": "scene 2 sheet VERBATIM in character_sheet",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 2 sheet VERBATIM in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 2 sheet VERBATIM in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 2 style verbatim in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 2 style verbatim in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 2 video_prompt has camera movement",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 3 fields complete",
+   "ok": true,
+   "detail": "missing=[]"
+  },
+  {
+   "check": "scene 3 duration 5-8s",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "check": "scene 3 sheet VERBATIM in character_sheet",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 3 sheet VERBATIM in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 3 sheet VERBATIM in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 3 style verbatim in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 3 style verbatim in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 3 video_prompt has camera movement",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 4 fields complete",
+   "ok": true,
+   "detail": "missing=[]"
+  },
+  {
+   "check": "scene 4 duration 5-8s",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "check": "scene 4 sheet VERBATIM in character_sheet",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 4 sheet VERBATIM in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 4 sheet VERBATIM in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 4 style verbatim in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 4 style verbatim in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 4 video_prompt has camera movement",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 5 fields complete",
+   "ok": true,
+   "detail": "missing=[]"
+  },
+  {
+   "check": "scene 5 duration 5-8s",
+   "ok": true,
+   "detail": "6"
+  },
+  {
+   "check": "scene 5 sheet VERBATIM in character_sheet",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 5 sheet VERBATIM in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 5 sheet VERBATIM in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 5 style verbatim in image_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 5 style verbatim in video_prompt",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "scene 5 video_prompt has camera movement",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "check": "human part non-empty",
+   "ok": true,
+   "detail": ""
+  }
+ ],
+ "pass": true,
+ "sceneCount": 5,
+ "totalDuration": 30,
+ "source": "built-in sample (offline contract validation)"
+}

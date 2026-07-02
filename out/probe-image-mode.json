@@ -1,0 +1,30 @@
+{
+  "steps": [],
+  "url": "https://labs.google/fx/tools/flow",
+  "ui": {
+    "btns": [
+      {
+        "tag": "BUTTON",
+        "txt": "From Mars Minhminhfrommars@gmail.comSigned out",
+        "aria": ""
+      },
+      {
+        "tag": "BUTTON",
+        "txt": "Use another account",
+        "aria": ""
+      },
+      {
+        "tag": "BUTTON",
+        "txt": "Remove an account",
+        "aria": ""
+      },
+      {
+        "tag": "SELECT",
+        "txt": "AfrikaansazərbaycanbosanskicatalàČeštinaCymraegDanskDeutscheestiEnglish (United ",
+        "aria": ""
+      }
+    ],
+    "matches": []
+  },
+  "modeBtn": null
+}

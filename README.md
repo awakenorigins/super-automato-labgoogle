@@ -126,6 +126,13 @@ No Google auth needed — pure local ffmpeg (6.x):
 - NotebookLM Audio Overview renders server-side (5–15 min typical); an already-rendered artifact is detected and reused instead of triggering a duplicate.
 - NotebookLM selectors are best-effort; Google ships UI changes often. Each command screenshots its state so failures are diagnosable.
 
+
+### Project reuse (no spam) — v0.4.2
+
+`flow gen --project "NAME"` reuses one Flow project per creative project instead of creating a new one each run. A local `flow-project-registry.json` maps NAME→projectId so reuse is deterministic even though Flow's UI hides project titles. First run creates+registers; later runs open the same project. `flow projects --json` lists projects; `flow project delete --name "NAME"` removes one on request.
+
+Default profile: `google-flow-login-profile` (owner-authenticated). Session kept alive by `labgoogle-forever-keeper.sh` + the `LabGoogle keepalive` cron.
+
 ## Security
 
 - Never prints cookies/tokens; account emails are masked in output.

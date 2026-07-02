@@ -8,10 +8,11 @@ Purpose: a real *automato* for autonomous content seeding — generate Veo clips
 
 ```
 bin/labgoogle              # thin wrapper -> npx tsx scripts/labgoogle.ts
-scripts/labgoogle.ts       # main CLI (whoami / flow / music / notebooklm)
+scripts/labgoogle.ts       # main CLI (whoami / flow / music / image / notebooklm / assemble)
 scripts/keepalive.ts       # session keep-alive (cron every ~3h)
 scripts/*.ts               # selector probes & debug helpers
-presets/*.txt              # chat prompt presets (podcast-script, seeding-content)
+scripts/validate-director-preset.py  # offline contract validator for the director-film preset
+presets/*.txt              # chat prompt presets (podcast-script, seeding-content, director-film, podcast-video)
 out/                       # JSON results, screenshot proofs, downloaded media (gitignored)
 ```
 
@@ -45,6 +46,14 @@ export LABGOOGLE_ACCOUNT="YOUR_ACCOUNT"   # display name or email prefix, never 
 ./bin/labgoogle notebooklm source add --notebook "My Notebook" --file ./doc.pdf --json
 ./bin/labgoogle notebooklm chat --notebook "My Notebook" --prompt "Summarize" --preset podcast-script --json
 ./bin/labgoogle notebooklm audio-overview --notebook "My Notebook" --prompt "focus on key insights" --json
+
+# v0.4.0 — image gen (ImageFX API first, UI fallback)
+./bin/labgoogle image gen --prompt "watercolor robot with red balloon" --count 2 --ratio landscape --json
+
+# v0.4.0 — assemble (pure ffmpeg, no Google auth needed)
+./bin/labgoogle assemble concat --clips a.mp4,b.mp4 --out final.mp4 --size 1280x720 --fps 24 --json
+./bin/labgoogle assemble mix --audio voice.m4a --music bg.wav --out mixed.m4a --music-volume 0.15 --loop --json
+./bin/labgoogle assemble mux --video v.mp4 --audio a.m4a --out final.mp4 --fit loop-video --json
 ```
 
 Every command returns JSON (`--json`) and writes screenshot proofs into `out/`.
@@ -55,6 +64,31 @@ Every command returns JSON (`--json`) and writes screenshot proofs into `out/`.
 
 - `podcast-script` — two-host podcast script style
 - `seeding-content` — social seeding post variants + hashtags
+- `director-film` — brief → director shooting script: 5–8s scenes, VERBATIM repeated character sheets (AI video models have no cross-scene memory — the literal repeated text IS the memory), per-scene image_prompt + video_prompt (with camera movement), mood/lighting, sound; strict JSON + `---HUMAN---` readable part. Offline contract validator: `python3 scripts/validate-director-preset.py [response.txt]`.
+- `podcast-video` — podcast topic → Vietnamese two-host script, per-segment 16:9 image prompts, loopable music prompt, and an ordered `assemble` pipeline.
+
+### Assemble (ffmpeg)
+
+No Google auth needed — pure local ffmpeg (6.x):
+
+- `assemble concat` re-encodes and normalizes every clip (scale+pad to `--size`, `--fps`, yuv420p, 48 kHz stereo audio — silent track injected for mute clips like raw Veo renders) then concatenates.
+- `assemble mix` ducks background music under a voice track (`--music-volume`, default 0.15), optionally `--loop`s the music to the full voice duration, adds a 3 s fade-out, output length locked to the voice.
+- `assemble mux` marries a video with an audio track: `--fit shortest` (stream-copy video) or `--fit loop-video` (loop video to cover the full audio).
+
+### Image gen engine choice
+
+`image gen` tries the **ImageFX backend API** (`aisandbox-pa.googleapis.com/v1:runImageFx`) first using the labs session `access_token` — headless, fast, returns base64 PNGs, and it is the same Imagen backend that Flow's image ingredients use. If the token is dead it falls back to the **ImageFX UI** (`labs.google/fx/tools/image-fx`) with network-level image capture. Flow's own UI image mode was probed but is gated behind the same interactive session, so ImageFX is the primary engine.
+
+## Status v0.4.0 (2026-07-02, round 4)
+
+| Command | Status | Notes |
+|---|---|---|
+| `assemble concat` | ✅ E2E PASS | 2 real Veo MP4s → normalized 1280x720@24fps, 8.02 s output, silent audio injected. |
+| `assemble mix` | ✅ E2E PASS | 19:15 NotebookLM podcast + looped 30 s MusicFX WAV @0.15 → output duration matches voice to the ms. |
+| `assemble mux` | ✅ E2E PASS | 8 s video looped over 30 s audio (`--fit loop-video`). |
+| `presets/director-film` + validator | ✅ PASS (offline) | 50/50 contract checks. Live NotebookLM test BLOCKED-auth. |
+| `presets/podcast-video` | ✅ shipped | Live test BLOCKED-auth. |
+| `image gen` | ⛔ BLOCKED-auth | Code shipped (API+UI fallback). Every Google session on the VPS was revoked server-side (tokeninfo: Invalid Value; signin/rejected). See AUDIT-REPORT v0.4.0. |
 
 ## Status (2026-07-02 audit, round 3 — full E2E PASS)
 

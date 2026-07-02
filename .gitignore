@@ -1,8 +1,12 @@
 # Auth/profile — NEVER commit
 google-flow-vps-profile/
+google-flow-vps-profile-v2/
+google-flow-labgoogle-profile-v3/
 *storage-state.json
+*storage*state*.json
 cookies*
 *.cookies
+Cookies
 .env
 *.pem
 *.key
@@ -12,4 +16,6 @@ out/
 *.png
 *.mp4
 *.mp3
+*.m4a
+*.wav
 node_modules/

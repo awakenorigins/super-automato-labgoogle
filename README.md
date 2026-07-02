@@ -56,19 +56,24 @@ Every command returns JSON (`--json`) and writes screenshot proofs into `out/`.
 - `podcast-script` — two-host podcast script style
 - `seeding-content` — social seeding post variants + hashtags
 
-## Status (2026-07-02 audit)
+## Status (2026-07-02 audit, round 3 — full E2E PASS)
 
 | Command | Status | Notes |
 |---|---|---|
-| `whoami` | ✅ WORKING | Labs session API reports signed-in (masked account). |
-| `flow gen` (render poll + download) | 🟡 CODE READY / E2E BLOCKED | Render-poll bug fixed (video src detection), download chain: UI button → http fetch → blob fetch, `file`-verified. E2E blocked by Google account chooser (UI session signed out). |
-| `music gen` | 🟡 CODE READY / E2E BLOCKED | Full submit → poll → download wired, MusicFX first with Flow fallback. Same UI auth blocker. |
-| `notebooklm list/create/source add/chat/audio-overview` | 🟡 CODE READY / E2E BLOCKED | Full suite wired incl. Audio Overview trigger + poll + audio download. NotebookLM currently redirects to `accounts.google.com` sign-in rejected page. |
+| `whoami` | ✅ E2E PASS | Labs session API reports signed-in (masked account). |
+| `flow gen` (render poll + download) | ✅ E2E PASS | Real Veo MP4 rendered + downloaded (`file`-verified ISO Media MP4). Auto-approves the Flow agent credit dialog. |
+| `music gen` | ✅ E2E PASS | Real WAV downloaded (PCM 16-bit stereo 48 kHz, 30 s). Detects tracks via "TRACK n/m" carousel + enabled Download button (MusicFX uses Web Audio, no `<audio>` element); retries silent-fail generations up to 3×; network-level audio capture as last-resort fallback. |
+| `notebooklm list` | ✅ E2E PASS | Lists notebooks (title scrape). |
+| `notebooklm create` | ✅ E2E PASS | Creates notebook, returns its URL/ID. |
+| `notebooklm source add --text` | ✅ E2E PASS | Clicks the "Copied text" chip in the add-sources modal, fills paste dialog, Inserts, verifies source count. |
+| `notebooklm chat --preset` | ✅ E2E PASS | Sends preset+prompt, polls until the answer is substantive and stable (not "Drafting…"). |
+| `notebooklm audio-overview` | ✅ E2E PASS | Triggers Studio Audio Overview, polls for the artifact row (duration + "n source"), opens its 3-dot menu → Download. Real 19-min podcast M4A downloaded and `file`-verified. |
 
 ## Known issues
 
 - **UI auth divergence:** the Labs `fx/api/auth/session` cookie can stay valid while the interactive Google UI session expires (`accounts.google.com` account chooser / `signin/rejected`). When that happens all UI commands report `blocked-auth-wall` with screenshot proof. Fix: refresh cookies into the profile from a real signed-in browser, then rerun.
-- MusicFX is legacy (sunsets 2026-07-31); the CLI falls back to prompting Flow for music.
+- MusicFX is legacy (sunsets 2026-07-31); the CLI falls back to prompting Flow for music. MusicFX generation can silently return to idle without an error — the CLI retries up to 3 attempts.
+- NotebookLM Audio Overview renders server-side (5–15 min typical); an already-rendered artifact is detected and reused instead of triggering a duplicate.
 - NotebookLM selectors are best-effort; Google ships UI changes often. Each command screenshots its state so failures are diagnosable.
 
 ## Security

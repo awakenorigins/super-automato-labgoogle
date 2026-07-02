@@ -1,0 +1,47 @@
+{
+  "ts": "2026-07-02T15:31:38.447Z",
+  "probes": [
+    {
+      "tag": "flow",
+      "requested": "https://labs.google/fx/tools/flow",
+      "landed": "https://accounts.google.com/v3/signin/accountchooser",
+      "authWall": true,
+      "state": {
+        "editableFields": 0,
+        "newProj": false,
+        "notebooks": 0,
+        "signedOutText": true,
+        "head": "Choose an account\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nRemove an account\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canada)\nFrançais (France)\nGaeilge\ngalego\nHrvatski\nIndonesia\nisiZulu\níslenska\nItaliano\nKiswahili\nlatviešu\nlietuvių\nmagyar\nMelayu\nNederlands\nnorsk\no‘zbek\npolski\nPortuguês (Brasil)\nPortuguês (Portugal)\nromână"
+      },
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/uilive-flow-1783006308635.png"
+    },
+    {
+      "tag": "nlm",
+      "requested": "https://notebooklm.google.com/",
+      "landed": "https://accounts.google.com/v3/signin/confirmidentifier",
+      "authWall": true,
+      "state": {
+        "editableFields": 0,
+        "newProj": false,
+        "notebooks": 0,
+        "signedOutText": false,
+        "head": "Verify that it’s you\nMASKED@EMAIL\n\nTo help keep your account secure, Google needs to verify that it’s you. Please sign in again to continue.\n\nNext\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canada)\nFrançais (France)\nGaeilge\ngalego\nHrvatski\nIndonesia\nisiZulu\níslenska\nItaliano\nKiswahili\nlatviešu\nlietuvių\nmagyar\nMelayu\nNederlands\nnorsk\no‘zbek\np"
+      },
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/uilive-nlm-1783006318124.png"
+    },
+    {
+      "tag": "imagefx",
+      "requested": "https://labs.google/fx/tools/image-fx",
+      "landed": "https://accounts.google.com/v3/signin/accountchooser",
+      "authWall": true,
+      "state": {
+        "editableFields": 0,
+        "newProj": false,
+        "notebooks": 0,
+        "signedOutText": true,
+        "head": "Choose an account\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nRemove an account\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canada)\nFrançais (France)\nGaeilge\ngalego\nHrvatski\nIndonesia\nisiZulu\níslenska\nItaliano\nKiswahili\nlatviešu\nlietuvių\nmagyar\nMelayu\nNederlands\nnorsk\no‘zbek\npolski\nPortuguês (Brasil)\nPortuguês (Portugal)\nromână"
+      },
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/uilive-imagefx-1783006328756.png"
+    }
+  ]
+}

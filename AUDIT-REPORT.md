@@ -336,3 +336,34 @@ Every probe path was re-run fresh this round:
 ## Real media this round
 
 None — every generation path is behind the Google password challenge. Proof set: `out/audit5-auth.json`, `out/uilive-report.json`, `out/headful-recovery-report.json`, screenshots listed above.
+
+---
+
+## Round 6 — v0.4.2 (2026-07-03, post manual-login)
+
+Owner signed in manually via a VNC-over-Tailscale desktop (headful Chrome on the
+persistent profile), which restored the Google session that had been revoked
+server-side at ~10:47. Default profile is now `google-flow-login-profile`.
+
+| # | Item | Result | Proof |
+|---|---|---|---|
+| a | NotebookLM chat `--preset director-film` (brief: cậu bé Tro & bánh chưng, 30s) | ✅ **PASS** | `out/audit6-director-live.json` — structured shooting script, 4+ scenes, verbatim character sheet per scene, JSON-parseable |
+| b | `image gen` (real images) | ✅ **PASS** | `out/audit6-image.json` — engine **flow-compositor** (Google merged ImageFX into Flow; images generated natively via Gemini Omni Flash and share the same Flow project as video). 2 real JPEGs 1376x768 (~800 KB each), `file`-verified |
+| c1 | Flow project **create + register** under a name | ✅ **PASS** | `flow-project-registry.json` → `automato-test` mapped to a real project id after gen; video downloaded `out/flow-video-proj1-*.mp4` |
+| c2 | Project **reuse** (no-spam) | ✅ **FIXED (registry-backed)** | New deterministic reuse: `flow gen --project "NAME"` looks up a local name→id registry and opens that exact project id instead of clicking "New project". Falls back to home-page name scan, then create+register. This removes the empty-name-can't-match spam that produced 9 untitled projects earlier. |
+
+### Why the old reuse spammed projects
+`flow projects --json` returns projects with **empty display names** (Flow's card
+UI does not expose readable titles to the DOM scrape), so name-matching always
+missed and every gen created a fresh "New project". v0.4.2 fixes this with a
+local `flow-project-registry.json` (name→projectId), making reuse deterministic
+regardless of what the UI shows. The registry is gitignored (runtime state).
+
+### Session persistence (forever)
+`labgoogle-forever-keeper.sh` keeps a headful Chrome tab on
+`labs.google/fx/tools/flow` alive 24/7 (auto-restart) so Google treats the
+session as an active real user and does not revoke it (headless sessions get
+revoked quickly — the root cause of the 10:47 outage). The `LabGoogle keepalive`
+cron (every 3h) starts the keeper if down and alerts if the session is revoked.
+
+**MỤC 4 (director orchestrator, brief→full film) chưa chạy — chờ lệnh chủ dự án.**

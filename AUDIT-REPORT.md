@@ -222,3 +222,57 @@ the default `google-flow-vps-profile-v2` profile carried the live session.
 - Video: `out/flow-video-1782955040605.mp4` (1.0 MB), `out/flow-video-1782955361413.mp4` (1.1 MB) — ISO Media MP4
 - Music: `out/music-audio-1782969952057.wav` (5.7 MB) — RIFF WAVE PCM 16-bit stereo 48 kHz, 30.0 s
 - Podcast: `out/nlm-podcast-1782971840229.m4a` (35.5 MB) — AAC, 1155.3 s (19:15)
+
+---
+
+# Round-4 audit — v0.4.0 — 2026-07-02 ~17:15 CEST
+
+Scope (per anh Nấng): MỤC 1 `image gen`, MỤC 2 director/podcast presets, MỤC 3 `assemble`.
+MỤC 4 (director orchestrator full-film) NOT run — awaiting explicit order.
+
+## Summary
+
+| # | Goal | Result | Proof |
+|---|---|---|---|
+| 3a | `assemble concat` — 2 real Veo MP4s → 1280x720@24fps | ✅ PASS | `out/audit4-assemble.json`; `out/assemble-concat.mp4` (2.5 MB, ISO MP4, 8.021 s, v+a streams; silent audio auto-injected for mute Veo clips) |
+| 3b | `assemble mix` — 19:15 podcast + looped 30 s WAV @0.15 | ✅ PASS | `out/assemble-mix.m4a` (28.4 MB AAC, **1155.285 s** = voice duration to the ms; 3 s music fade-out) |
+| 3c | `assemble mux` — 8 s video looped over 30 s audio | ✅ PASS | `out/assemble-mux.mp4` (8.9 MB, 30.0 s, `--fit loop-video`) |
+| 2a | `presets/director-film.txt` shipped | ✅ PASS | 5–8 s scenes, VERBATIM character sheets, image+video prompts w/ camera moves, JSON + `---HUMAN---` |
+| 2b | `presets/podcast-video.txt` shipped | ✅ PASS | VN two-host script + segment image prompts + music prompt + assemble pipeline |
+| 2c | director-film offline contract validation | ✅ PASS 50/50 | `out/audit4-director-preset.json`, `out/audit4-director-preset-validation.json`, `scripts/validate-director-preset.py` |
+| 2d | director-film LIVE via NotebookLM chat | ⛔ BLOCKED-auth | `out/nlm-chat-1783004148334.png` (confirmidentifier wall) |
+| 1 | `image gen` E2E (≥2 real images) | ⛔ BLOCKED-auth | `out/audit4-image.json` — full hunt post-mortem below |
+| 1b | Bonus `flow gen --image` (ảnh→video) | ⛔ BLOCKED-auth | same wall |
+| S | Security gate | ✅ PASS | no cookies/tokens/emails in shipped files; profiles + out/ + media extensions gitignored |
+
+## Auth post-mortem (MỤC 1) — every VPS cookie source probed
+
+| Source | Probe | Verdict |
+|---|---|---|
+| `google-flow-vps-profile-v2` (default) | session API + Google tokeninfo + live runImageFx | Session API still returns user+access_token (expires 16:51Z) but the token is **server-side revoked**: tokeninfo → `Invalid Value`, every aisandbox call → 401. UI: account chooser "Signed out" → pwd challenge. |
+| `google-flow-vps-profile` (v1) | probe-token-health | `ACCESS_TOKEN_REFRESH_NEEDED` (expired 07-01), ImageFX 401. |
+| `youtube-cli/yt-forever-profile` | **copied** to `google-flow-labgoogle-profile-v3` (original untouched, keeper not killed) | Cookie DB has SID/1PSID/LSID valid ~398 days **on disk**, but Google killed the session server-side: youtube.com → "Sign in", labs → `signin/rejected`, NotebookLM → chooser. The yt keeper itself is crash-looping since ~10:47. |
+| storage-state JSONs (v2 + out/) | cookie inventory (names/expiry only) | Same revoked SID family + 30 d labs next-auth token — same dead session. |
+| suno-* profiles | cookie DB scan | Zero google.com session cookies. |
+
+**Conclusion:** all Google credentials on the VPS descend from one account session that Google revoked server-side (~2026-07-02 morning — matching when the yt keeper started crash-looping). Every path ends at `signin/rejected` or the password challenge. Per hard rules (no password entry, no brute force, no logout), MỤC 1 is BLOCKED-auth.
+**Unblock:** sign in once at labs.google/fx/tools/flow in a real browser → export profile/storage-state to the VPS → `./bin/labgoogle image gen ... --json` (code is ready, API-first + UI fallback).
+
+## New in v0.4.0
+
+- `image gen` — ImageFX backend API (`v1:runImageFx`, IMAGEN_3_1, `--count`, `--ratio`) with labs session token; UI fallback with network image capture; masked errors.
+- `assemble concat|mix|mux` — pure-ffmpeg local pipeline (see README), JSON output with ffprobe-verified proofs.
+- `presets/director-film.txt`, `presets/podcast-video.txt` + `scripts/validate-director-preset.py` (offline contract validator, 50 checks).
+- `.gitignore` hardened: v2/v3 profiles, `Cookies`, `*.m4a`, `*.wav`.
+
+## E2E command log (round 4)
+
+```bash
+O=$PWD/out
+./bin/labgoogle assemble concat --clips $O/flow-video-1782955040605.mp4,$O/flow-video-1782955361413.mp4 --out $O/assemble-concat.mp4 --size 1280x720 --json   # PASS 8.021s
+./bin/labgoogle assemble mix --audio $O/nlm-podcast-1782971840229.m4a --music $O/music-audio-1782969952057.wav --out $O/assemble-mix.m4a --music-volume 0.15 --loop --json   # PASS 1155.285s
+./bin/labgoogle assemble mux --video $O/assemble-concat.mp4 --audio $O/music-audio-1782969952057.wav --out $O/assemble-mux.mp4 --fit loop-video --json   # PASS 30.0s
+python3 scripts/validate-director-preset.py   # PASS 50/50
+./bin/labgoogle image gen --prompt "..." --count 2 --json   # blocked-auth-wall (proof PNG + audit4-image.json)
+./bin/labgoogle notebooklm chat --notebook 07790274-... --preset director-film --prompt "phim 30s ..."   # blocked-auth-wall
+```

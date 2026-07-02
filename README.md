@@ -38,6 +38,11 @@ export LABGOOGLE_ACCOUNT="YOUR_ACCOUNT"   # display name or email prefix, never 
 ```bash
 ./bin/labgoogle whoami --json
 ./bin/labgoogle flow gen --prompt "A tiny robot waves, 2s" --submit --timeout 600000 --json
+
+# v0.4.1 — Flow project management (no more one-project-per-gen spam)
+./bin/labgoogle flow gen --prompt "scene 2" --project "My Film" --submit --json   # reuses project "My Film"; creates+renames only if missing (default: Automato-Sandbox)
+./bin/labgoogle flow projects --json                                              # list existing projects {name,url,id}
+./bin/labgoogle flow project delete --name "Untitled project" --json              # explicit cleanup only, with confirm-dialog handling
 ./bin/labgoogle music gen --prompt "short upbeat synth loop" --json
 ./bin/labgoogle notebooklm list --json
 ./bin/labgoogle notebooklm create --title "My Notebook" --json
@@ -75,9 +80,20 @@ No Google auth needed — pure local ffmpeg (6.x):
 - `assemble mix` ducks background music under a voice track (`--music-volume`, default 0.15), optionally `--loop`s the music to the full voice duration, adds a 3 s fade-out, output length locked to the voice.
 - `assemble mux` marries a video with an audio track: `--fit shortest` (stream-copy video) or `--fit loop-video` (loop video to cover the full audio).
 
+### Flow projects (`--project`)
+
+`flow gen` no longer creates a fresh project on every run. It opens the Flow homepage, looks for a project card whose title matches `--project` (exact match first, then substring), and clicks into it. Only when no match exists does it create a new project — and immediately renames it to your `--project` value (default `Automato-Sandbox`). Repeated gens with the same `--project` land in the **same** project, so a multi-scene film accumulates in one place. JSON output reports `projectUrl` / `projectReused` / `projectCreated` / `projectRenamed`. `flow projects --json` lists what exists; `flow project delete --name` is the only deletion path and is never called automatically.
+
 ### Image gen engine choice
 
 `image gen` tries the **ImageFX backend API** (`aisandbox-pa.googleapis.com/v1:runImageFx`) first using the labs session `access_token` — headless, fast, returns base64 PNGs, and it is the same Imagen backend that Flow's image ingredients use. If the token is dead it falls back to the **ImageFX UI** (`labs.google/fx/tools/image-fx`) with network-level image capture. Flow's own UI image mode was probed but is gated behind the same interactive session, so ImageFX is the primary engine.
+
+## Status v0.4.1 (2026-07-02, round 5)
+
+| Command | Status | Notes |
+|---|---|---|
+| `flow gen --project` / `flow projects` / `flow project delete` | ✅ shipped, ⛔ E2E blocked-auth | Project reuse by name, create+rename fallback, explicit delete. Live E2E pending re-auth. |
+| `image gen`, NotebookLM live director test | ⛔ BLOCKED-auth | Auth re-test round 5: headful recovery attempt ends at a real Google **password challenge** (screenshot proof in AUDIT-REPORT). No password entry per policy. Unblock = manual sign-in once + export profile. |
 
 ## Status v0.4.0 (2026-07-02, round 4)
 

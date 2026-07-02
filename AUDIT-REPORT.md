@@ -146,3 +146,79 @@ NotebookLM now redirects to `accounts.google.com/v3/signin/rejected` — Google 
 ## GitHub release
 
 See section appended below after push attempt.
+
+## GitHub release result
+
+- Repo: https://github.com/NachaFromMars/super-automato-labgoogle
+- Release: https://github.com/NachaFromMars/super-automato-labgoogle/releases/tag/v0.2.0 (v0.2.0)
+- Pushed 10 files from sanitized staging dir (README, LICENSE, .gitignore, package.json, AUDIT-REPORT, bin/labgoogle portable launcher, scripts/labgoogle.ts + keepalive.ts, presets/*).
+- Security gate before push: PASS — no cookies/tokens/full personal emails; account shown only masked (`m***@gmail.com`); profile/storage-state/screenshots excluded.
+
+---
+
+# Round-3 audit — 2026-07-02 ~07:40 CEST (FULL E2E, real media)
+
+Auth: persistent profile signed in (Labs session OK, NotebookLM UI OK). A stale keeper
+process (`yt-forever-keeper.sh` + Chrome on the yt profile) was killed before the runs;
+the default `google-flow-vps-profile-v2` profile carried the live session.
+
+## Summary
+
+| # | Goal | Result | Proof |
+|---|---|---|---|
+| 1 | Flow/Veo E2E render + download | ✅ PASS (round 2, unchanged) | `out/audit2-flow.json` stage=`rendered-downloaded`; `out/flow-video-1782955361413.mp4` (1.1 MB, `ISO Media, MP4 Base Media v1`) + `out/flow-video-1782955040605.mp4` |
+| 2 | MusicFX E2E render + download | ✅ PASS | `out/audit3-music.json` stage=`rendered-downloaded`; `out/music-audio-1782969952057.wav` (5.7 MB, `RIFF WAVE audio, PCM 16 bit, stereo 48000 Hz`, 30.0 s) |
+| 3 | NotebookLM create | ✅ PASS | `out/audit3-nlm-create.json` → notebook `07790274-d301-4f08-9d62-5c67c7f7c36d`; `out/nlm-created-1782970039754.png` |
+| 4 | NotebookLM source add (text) | ✅ PASS | `out/audit3-nlm-source.json` stage=`source-text-submitted`, sourcesSeen=1; `out/nlm-source-done-1782970307930.png` (notebook auto-titled "Super Automato Lab: Autonomous Google Media Engineering") |
+| 5 | NotebookLM chat + preset | ✅ PASS | `out/audit3-nlm-chat.json` stage=`answered`, preset=`podcast-script`, full 6-segment two-host script + 3 episode titles returned |
+| 6 | NotebookLM Audio Overview → podcast download | ✅ PASS | `out/audit3-nlm-audio.json` stage=`audio-downloaded`; `out/nlm-podcast-1782971840229.m4a` (35.5 MB, AAC, **19:15** duration, `file` = ISO Media MPEG v4 DASH) |
+| 7 | Security gate | ✅ PASS | repo grep: no cookies/tokens/personal emails in shipped files (one leftover account hint in `scripts/restore-labs-auth.ts` redacted this round); `out/` fully gitignored |
+
+## Bugs found & fixed this round
+
+1. **MusicFX render detection** — MusicFX plays tracks through Web Audio, so `<audio>`
+   elements never appear. Old poll waited on `audio.src` forever. New detection:
+   `TRACK n / m` carousel text, `NO TRACKS YET` marker, enabled (non-disabled) Download
+   button, and network-level `audio/*` response capture as backup.
+2. **MusicFX silent failure** — a generation can spin ("Generating music") and then
+   return to idle with no tracks and no error. Added retry loop (max 3 attempts inside
+   the overall timeout). E2E passed on attempt 2.
+3. **Download suggested-extension** — MusicFX serves WAV, not MP3. Download handler now
+   respects `suggestedFilename()` extension (got `.wav`).
+4. **NotebookLM source add typed into the wrong box** — text went into the web-search
+   field of the add-sources modal. Fixed: click the "Copied text" chip (rect-click via
+   evaluate), fill the paste dialog's textarea, then Insert; verifies source count after.
+5. **NotebookLM chat returned placeholder** — first poll caught "Drafting the script…".
+   Fixed: answer must be >200 chars, page must not contain Drafting/generating/thinking,
+   and the text must be stable across two consecutive polls.
+6. **Audio Overview artifact has no `<audio>` element** — rendered podcasts show as a
+   Studio row ("19:15 · 1 source · Nm ago") with no DOM audio. Fixed: detect the artifact
+   row, reuse an existing rendered artifact instead of re-triggering, click the row's own
+   3-dot menu (y-aligned with the row, right panel) → Download. First fix attempt clicked
+   the chat menu instead (proof: `out/nlm-audio-menu-1782971699846.png`); second attempt
+   downloaded the real 35.5 MB M4A.
+
+## E2E command log (round 3)
+
+```bash
+./bin/labgoogle music gen --prompt "dreamy lo-fi hip hop beat with warm vinyl crackle, mellow piano" --timeout 720000 --json
+# -> rendered-downloaded, out/music-audio-1782969952057.wav (WAV PCM 48kHz stereo, 30s), attempts=2
+
+./bin/labgoogle notebooklm create --title "Automato Audit E2E" --json
+# -> create-clicked, notebook 07790274-d301-4f08-9d62-5c67c7f7c36d
+
+./bin/labgoogle notebooklm source add --notebook 07790274-... --text "<project description>" --json
+# -> source-text-submitted, sourcesSeen=1
+
+./bin/labgoogle notebooklm chat --notebook 07790274-... --preset podcast-script --prompt "Write a short podcast episode outline..." --json
+# -> answered (full two-host outline, 6 segments, 3 title suggestions)
+
+./bin/labgoogle notebooklm audio-overview --notebook 07790274-... --timeout 900000 --json
+# -> audio-downloaded, out/nlm-podcast-1782971840229.m4a (35.5MB AAC, 19:15)
+```
+
+## Real media files (out/, gitignored)
+
+- Video: `out/flow-video-1782955040605.mp4` (1.0 MB), `out/flow-video-1782955361413.mp4` (1.1 MB) — ISO Media MP4
+- Music: `out/music-audio-1782969952057.wav` (5.7 MB) — RIFF WAVE PCM 16-bit stereo 48 kHz, 30.0 s
+- Podcast: `out/nlm-podcast-1782971840229.m4a` (35.5 MB) — AAC, 1155.3 s (19:15)

@@ -1,0 +1,1204 @@
+{
+  "brief": "Phim điện ảnh 5 phút - câu bé tro và chiếc bàn",
+  "project": "Automato-Film-Tro",
+  "slug": "phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n",
+  "dir": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n",
+  "minutes": 5,
+  "noMusic": true,
+  "vocalLang": "vi",
+  "step": "done",
+  "storyboard": {
+    "title": "Tro and the First Bánh Chưng",
+    "total_duration_seconds": 224,
+    "style": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic",
+    "characters": [
+      {
+        "name": "Tro",
+        "core": "Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands",
+        "voice": "vi-VN-NamMinhNeural",
+        "voice_desc": "young cheerful 6-year-old boy"
+      },
+      {
+        "name": "Ba",
+        "core": "Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles",
+        "voice": "vi-VN-HoaiMyNeural",
+        "voice_desc": "warm gentle elderly grandmother"
+      }
+    ],
+    "shots": [
+      {
+        "number": 1,
+        "act": 1,
+        "scene_title": "Bình minh làng quê ngày Tết",
+        "duration_seconds": 8,
+        "shot_size": "EWS",
+        "camera_angle": "High-angle",
+        "camera_movement": "Slow aerial drift forward over the village",
+        "lens": "24mm wide",
+        "subject": "",
+        "action": "Morning mist drifts over a quiet Vietnamese village; smoke rises from a kitchen chimney.",
+        "context": "rural North Vietnam, early Tết morning, rice fields in the distance",
+        "lighting": "Soft cool dawn light, golden rim on the mist",
+        "mood_color": "Peaceful, nostalgic, jade and amber",
+        "audio": {
+          "ambient": "distant rooster crow, soft wind, faint firecrackers far away",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Dissolve",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. EWS, High-angle. A misty Vietnamese village at dawn, thatched roofs, a courtyard with a kumquat tree and red couplets. rural North Vietnam, early Tết morning, rice fields in the distance. Soft cool dawn light, golden rim on the mist. Peaceful, nostalgic, jade and amber.",
+        "video_prompt": "EWS. Slow aerial drift forward over the village. Morning mist drifts over a quiet Vietnamese village; smoke rises from a kitchen chimney. rural North Vietnam, early Tết morning, rice fields in the distance. Soft cool dawn light, golden rim on the mist. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: distant rooster crow, soft wind, faint firecrackers far away.",
+        "character_core_refs": [],
+        "continuity_note": "Opening establishing shot — will be mirrored by the final shot."
+      },
+      {
+        "number": 2,
+        "act": 1,
+        "scene_title": "Gian bếp của bà",
+        "duration_seconds": 8,
+        "shot_size": "WS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow dolly in through the doorway",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "Bà arranges leaves and rice on a bamboo tray, preparing to wrap bánh chưng.",
+        "context": "a warm dim traditional kitchen, red couplets on the wall, a small altar with kumquats",
+        "lighting": "Warm firelight from the stove, soft window light",
+        "mood_color": "Cozy, tender, warm amber",
+        "audio": {
+          "ambient": "crackling fire, water simmering",
+          "foley": "rustling dong leaves",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. WS, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. sitting on a low wooden stool by a clay stove, laying out green dong leaves, soaked sticky rice, mung beans and pork on a bamboo tray. a warm dim traditional kitchen, red couplets on the wall, a small altar with kumquats. Warm firelight from the stove, soft window light. Cozy, tender, warm amber.",
+        "video_prompt": "WS. Slow dolly in through the doorway. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà arranges leaves and rice on a bamboo tray, preparing to wrap bánh chưng. a warm dim traditional kitchen, red couplets on the wall, a small altar with kumquats. Warm firelight from the stove, soft window light. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: crackling fire, water simmering.",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "Introduce Bà doing a characteristic action."
+      },
+      {
+        "number": 3,
+        "act": 1,
+        "scene_title": "Tro chạy vào",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Handheld follow",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro runs in excitedly and skids to a stop beside Bà, eyes shining at the leaves and rice.",
+        "context": "the kitchen doorway, morning light behind him",
+        "lighting": "Backlit doorway glow, warm key on his face",
+        "mood_color": "Bright, eager, warm",
+        "audio": {
+          "ambient": "his quick footsteps, breathing",
+          "foley": "bare feet on packed earth floor",
+          "spot_sfx": "",
+          "dialogue": "Bà ơi, năm nay cho con gói bánh với!",
+          "dialogue_voice": "vi-VN-NamMinhNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Eye-level. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. bursting through the doorway with excited wide eyes, cheeks flushed from running. the kitchen doorway, morning light behind him. Backlit doorway glow, warm key on his face. Bright, eager, warm.",
+        "video_prompt": "MS. Handheld follow. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro runs in excitedly and skids to a stop beside Bà, eyes shining at the leaves and rice. the kitchen doorway, morning light behind him. Backlit doorway glow, warm key on his face. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: his quick footsteps, breathing. The character says in Vietnamese: \"Bà ơi, năm nay cho con gói bánh với!\".",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "Tro wants to help — establishes his desire (want)."
+      },
+      {
+        "number": 4,
+        "act": 1,
+        "scene_title": "Bà mỉm cười gật đầu",
+        "duration_seconds": 8,
+        "shot_size": "MCU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "Bà looks up, smiles warmly and pats the stool beside her, inviting Tro to sit.",
+        "context": "by the clay stove, soft firelight",
+        "lighting": "Warm firelight glow on her face",
+        "mood_color": "Loving, patient, amber",
+        "audio": {
+          "ambient": "crackling fire",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": "Được, con ngồi xuống đây bà chỉ cho.",
+          "dialogue_voice": "vi-VN-HoaiMyNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MCU, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. looking up with a soft warm smile, wrinkles deepening kindly around her eyes. by the clay stove, soft firelight. Warm firelight glow on her face. Loving, patient, amber.",
+        "video_prompt": "MCU. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà looks up, smiles warmly and pats the stool beside her, inviting Tro to sit. by the clay stove, soft firelight. Warm firelight glow on her face. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: crackling fire. The character says in Vietnamese: \"Được, con ngồi xuống đây bà chỉ cho.\".",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "Bà accepts — the mentor bond established."
+      },
+      {
+        "number": 5,
+        "act": 1,
+        "scene_title": "Bàn tay bà đặt lá",
+        "duration_seconds": 6,
+        "shot_size": "ECU",
+        "camera_angle": "High-angle",
+        "camera_movement": "Static, slight rack focus",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "Bà's hands smooth two green dong leaves into a cross, pressing them flat with care.",
+        "context": "close on the wooden wrapping board",
+        "lighting": "Warm directional light, glistening leaf surface",
+        "mood_color": "Intimate, precise, jade green",
+        "audio": {
+          "ambient": "",
+          "foley": "leaves rustling, soft pat of hands",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Match cut to Tro imitating",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. ECU, High-angle. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà's thin wrinkled hands laying two dong leaves in a cross on the wooden board. close on the wooden wrapping board. Warm directional light, glistening leaf surface. Intimate, precise, jade green.",
+        "video_prompt": "ECU. Static, slight rack focus. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà's hands smooth two green dong leaves into a cross, pressing them flat with care. close on the wooden wrapping board. Warm directional light, glistening leaf surface. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic.",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "PLANT: the careful technique Tro will later fail then master."
+      },
+      {
+        "number": 6,
+        "act": 2,
+        "scene_title": "Tro bắt chước",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro copies Bà, fumbling with the leaves, his tongue poking out as he concentrates hard.",
+        "context": "beside Bà at the wrapping board",
+        "lighting": "Warm firelight",
+        "mood_color": "Playful, determined, warm",
+        "audio": {
+          "ambient": "fire crackle",
+          "foley": "crinkling leaves",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Eye-level. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. clumsily grabbing dong leaves, tongue poking out in concentration, leaves crooked. beside Bà at the wrapping board. Warm firelight. Playful, determined, warm.",
+        "video_prompt": "MS. Static. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro copies Bà, fumbling with the leaves, his tongue poking out as he concentrates hard. beside Bà at the wrapping board. Warm firelight. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "Tro attempts — clumsy."
+      },
+      {
+        "number": 7,
+        "act": 2,
+        "scene_title": "Đổ nếp quá tay",
+        "duration_seconds": 6,
+        "shot_size": "CU",
+        "camera_angle": "High-angle",
+        "camera_movement": "Slow push in",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro scoops far too much sticky rice; white grains spill over the leaf and scatter on the board.",
+        "context": "close on the overfilled leaf",
+        "lighting": "Warm light, rice grains catching highlights",
+        "mood_color": "Comic tension, warm",
+        "audio": {
+          "ambient": "",
+          "foley": "rice spilling, scattering grains",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, High-angle. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. small hands scooping too much sticky rice, grains spilling over the leaf edges. close on the overfilled leaf. Warm light, rice grains catching highlights. Comic tension, warm.",
+        "video_prompt": "CU. Slow push in. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro scoops far too much sticky rice; white grains spill over the leaf and scatter on the board. close on the overfilled leaf. Warm light, rice grains catching highlights. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "First mistake — overfilling."
+      },
+      {
+        "number": 8,
+        "act": 2,
+        "scene_title": "Gấp lá bị rách",
+        "duration_seconds": 6,
+        "shot_size": "CU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro folds the leaf too forcefully and it tears, rice bulging out of the split.",
+        "context": "close on the tearing leaf in his hands",
+        "lighting": "Warm light",
+        "mood_color": "Deflating, tension, warm",
+        "audio": {
+          "ambient": "",
+          "foley": "a sharp leaf-tear rip",
+          "spot_sfx": "small rip",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Eye-level. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. folding the leaf too hard, a tear splitting across the green surface. close on the tearing leaf in his hands. Warm light. Deflating, tension, warm.",
+        "video_prompt": "CU. Static. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro folds the leaf too forcefully and it tears, rice bulging out of the split. close on the tearing leaf in his hands. Warm light. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. SFX: small rip.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "Escalating failure."
+      },
+      {
+        "number": 9,
+        "act": 2,
+        "scene_title": "Bánh bung ra",
+        "duration_seconds": 8,
+        "shot_size": "MCU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slight handheld",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro lifts his bánh and it collapses, rice and mung beans tumbling onto the board.",
+        "context": "over the messy board",
+        "lighting": "Warm light",
+        "mood_color": "Crushing disappointment, warm",
+        "audio": {
+          "ambient": "",
+          "foley": "soft tumble of rice and beans",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MCU, Eye-level. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. the half-wrapped bánh falling apart in his hands, rice and beans tumbling out. over the messy board. Warm light. Crushing disappointment, warm.",
+        "video_prompt": "MCU. Slight handheld. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro lifts his bánh and it collapses, rice and mung beans tumbling onto the board. over the messy board. Warm light. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "The failure lands."
+      },
+      {
+        "number": 10,
+        "act": 2,
+        "scene_title": "Tro tủi thân",
+        "duration_seconds": 8,
+        "shot_size": "CU",
+        "camera_angle": "Slightly high-angle",
+        "camera_movement": "Slow push in",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro's lip trembles and his eyes fill with tears as he stares at the ruined bánh.",
+        "context": "close on his crumpling face",
+        "lighting": "Soft warm light, a tear catching the glow",
+        "mood_color": "Heartbreaking, tender, warm",
+        "audio": {
+          "ambient": "fire crackle only",
+          "foley": "",
+          "spot_sfx": "total silence",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hold on silence",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Slightly high-angle. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. lower lip trembling, eyes welling with tears, looking down at the ruined bánh. close on his crumpling face. Soft warm light, a tear catching the glow. Heartbreaking, tender, warm.",
+        "video_prompt": "CU. Slow push in. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro's lip trembles and his eyes fill with tears as he stares at the ruined bánh. close on his crumpling face. Soft warm light, a tear catching the glow. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle only.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "SILENCE beat #1 — emotional low."
+      },
+      {
+        "number": 11,
+        "act": 2,
+        "scene_title": "Giọt nước mắt rơi",
+        "duration_seconds": 6,
+        "shot_size": "ECU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "A single tear rolls down Tro's cheek and falls onto the scattered rice.",
+        "context": "extreme close on cheek and falling tear",
+        "lighting": "Soft rim light on the tear",
+        "mood_color": "Quiet sorrow, warm",
+        "audio": {
+          "ambient": "",
+          "foley": "",
+          "spot_sfx": "total silence",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. ECU, Eye-level. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. a single tear rolling down his cheek and dropping onto a scattered grain of rice. extreme close on cheek and falling tear. Soft rim light on the tear. Quiet sorrow, warm.",
+        "video_prompt": "ECU. Static. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. A single tear rolls down Tro's cheek and falls onto the scattered rice. extreme close on cheek and falling tear. Soft rim light on the tear. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "Show-don't-tell of his sadness."
+      },
+      {
+        "number": 12,
+        "act": 2,
+        "scene_title": "Bàn tay bà đặt lên vai",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba, Tro",
+        "action": "Bà gently rests her hand on Tro's shoulder and leans close with a soft reassuring smile.",
+        "context": "the two of them at the board",
+        "lighting": "Warm firelight wrapping both faces",
+        "mood_color": "Comforting, safe, amber",
+        "audio": {
+          "ambient": "fire crackle",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": "Không sao đâu con. Bà hồi bé gói còn xấu hơn.",
+          "dialogue_voice": "vi-VN-HoaiMyNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà gently placing a wrinkled hand on Tro's small shoulder, leaning close. the two of them at the board. Warm firelight wrapping both faces. Comforting, safe, amber.",
+        "video_prompt": "MS. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà gently rests her hand on Tro's shoulder and leans close with a soft reassuring smile. the two of them at the board. Warm firelight wrapping both faces. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle. The character says in Vietnamese: \"Không sao đâu con. Bà hồi bé gói còn xấu hơn.\".",
+        "character_core_refs": [
+          "Ba",
+          "Tro"
+        ],
+        "continuity_note": "Comfort — the need (reassurance) is met, not just the want."
+      },
+      {
+        "number": 13,
+        "act": 2,
+        "scene_title": "Tro ngẩng lên",
+        "duration_seconds": 6,
+        "shot_size": "CU",
+        "camera_angle": "Low-angle",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro looks up at Bà, tears on his cheeks, a small hopeful spark returning to his eyes.",
+        "context": "looking up toward Bà",
+        "lighting": "Warm key from the stove",
+        "mood_color": "Fragile hope, warm",
+        "audio": {
+          "ambient": "fire crackle",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Low-angle. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro looking up at Bà, tears still on his cheeks but a tiny hopeful spark returning. looking up toward Bà. Warm key from the stove. Fragile hope, warm.",
+        "video_prompt": "CU. Static. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro looks up at Bà, tears on his cheeks, a small hopeful spark returning to his eyes. looking up toward Bà. Warm key from the stove. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "Turn toward hope."
+      },
+      {
+        "number": 14,
+        "act": 2,
+        "scene_title": "Bà cầm tay Tro dạy",
+        "duration_seconds": 8,
+        "shot_size": "CU",
+        "camera_angle": "High-angle",
+        "camera_movement": "Slow dolly in",
+        "lens": "50mm",
+        "subject": "Ba, Tro",
+        "action": "Bà's hands cup Tro's small hands and guide them to fold the leaf slowly and gently together.",
+        "context": "close on four hands on the board",
+        "lighting": "Warm directional light on hands",
+        "mood_color": "Tender teaching, warm jade",
+        "audio": {
+          "ambient": "",
+          "foley": "soft rustle of leaves, gentle",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, High-angle. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà's wrinkled hands cupping Tro's small hands, guiding them to fold the leaf gently. close on four hands on the board. Warm directional light on hands. Tender teaching, warm jade.",
+        "video_prompt": "CU. Slow dolly in. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà's hands cup Tro's small hands and guide them to fold the leaf slowly and gently together. close on four hands on the board. Warm directional light on hands. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic.",
+        "character_core_refs": [
+          "Ba",
+          "Tro"
+        ],
+        "continuity_note": "PAYOFF of the technique plant (shot 5) — she teaches it."
+      },
+      {
+        "number": 15,
+        "act": 2,
+        "scene_title": "Gói lại từ từ",
+        "duration_seconds": 8,
+        "shot_size": "MCU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba, Tro",
+        "action": "Tro wraps again slowly and carefully while Bà nods and murmurs encouragement.",
+        "context": "the two working together",
+        "lighting": "Warm firelight",
+        "mood_color": "Focused, warming, amber",
+        "audio": {
+          "ambient": "fire crackle",
+          "foley": "careful leaf folds",
+          "spot_sfx": "",
+          "dialogue": "Từ từ thôi con, đẹp lắm.",
+          "dialogue_voice": "vi-VN-HoaiMyNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MCU, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro carefully wrapping again, slower, Bà nodding encouragement beside him. the two working together. Warm firelight. Focused, warming, amber.",
+        "video_prompt": "MCU. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro wraps again slowly and carefully while Bà nods and murmurs encouragement. the two working together. Warm firelight. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle. The character says in Vietnamese: \"Từ từ thôi con, đẹp lắm.\".",
+        "character_core_refs": [
+          "Ba",
+          "Tro"
+        ],
+        "continuity_note": "Progress through patience."
+      },
+      {
+        "number": 16,
+        "act": 2,
+        "scene_title": "Buộc lạt",
+        "duration_seconds": 6,
+        "shot_size": "ECU",
+        "camera_angle": "High-angle",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro loops thin bamboo string around a lumpy bánh chưng that finally holds together.",
+        "context": "close on the tied bánh",
+        "lighting": "Warm light, string catching highlights",
+        "mood_color": "Small triumph, warm",
+        "audio": {
+          "ambient": "",
+          "foley": "string pulling taut",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. ECU, High-angle. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. small hands looping thin bamboo string around a lumpy but holding-together bánh. close on the tied bánh. Warm light, string catching highlights. Small triumph, warm.",
+        "video_prompt": "ECU. Static. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro loops thin bamboo string around a lumpy bánh chưng that finally holds together. close on the tied bánh. Warm light, string catching highlights. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "PLANT/PAYOFF: the imperfect but whole bánh — the film's key object."
+      },
+      {
+        "number": 17,
+        "act": 2,
+        "scene_title": "Tro nâng chiếc bánh méo",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Low-angle",
+        "camera_movement": "Slow push in",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro proudly lifts his small crooked bánh chưng, beaming a gap-toothed grin.",
+        "context": "in the warm kitchen",
+        "lighting": "Warm hero light on his face",
+        "mood_color": "Joyful pride, warm amber",
+        "audio": {
+          "ambient": "fire crackle",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": "Con gói được rồi bà ơi!",
+          "dialogue_voice": "vi-VN-NamMinhNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Low-angle. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro proudly holding up a small lumpy crooked bánh chưng with a gap-toothed grin. in the warm kitchen. Warm hero light on his face. Joyful pride, warm amber.",
+        "video_prompt": "MS. Slow push in. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro proudly lifts his small crooked bánh chưng, beaming a gap-toothed grin. in the warm kitchen. Warm hero light on his face. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle. The character says in Vietnamese: \"Con gói được rồi bà ơi!\".",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "The crooked bánh — will be the gift in Act 3."
+      },
+      {
+        "number": 18,
+        "act": 2,
+        "scene_title": "Nồi bánh trên bếp lửa",
+        "duration_seconds": 8,
+        "shot_size": "WS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow dolly back",
+        "lens": "50mm",
+        "subject": "",
+        "action": "A big pot of bánh chưng boils over a crackling wood fire in the dark courtyard at night.",
+        "context": "the courtyard at New Year's Eve, stars above, red lantern glow",
+        "lighting": "Orange firelight against deep blue night",
+        "mood_color": "Warm against the cold night, amber and indigo",
+        "audio": {
+          "ambient": "crackling fire, bubbling water, crickets, distant firecrackers",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Dissolve",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. WS, Eye-level. a large blackened pot of bánh chưng boiling over a wood fire in the dark yard at night. the courtyard at New Year's Eve, stars above, red lantern glow. Orange firelight against deep blue night. Warm against the cold night, amber and indigo.",
+        "video_prompt": "WS. Slow dolly back. A big pot of bánh chưng boils over a crackling wood fire in the dark courtyard at night. the courtyard at New Year's Eve, stars above, red lantern glow. Orange firelight against deep blue night. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: crackling fire, bubbling water, crickets, distant firecrackers.",
+        "character_core_refs": [],
+        "continuity_note": "Time shift to night watch."
+      },
+      {
+        "number": 19,
+        "act": 2,
+        "scene_title": "Bà và Tro ngồi canh nồi",
+        "duration_seconds": 8,
+        "shot_size": "MWS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba, Tro",
+        "action": "Bà and Tro sit close by the fire under a shared blanket, watching the pot boil.",
+        "context": "the night courtyard, firelight flickering on their faces",
+        "lighting": "Warm firelight, cool blue night behind",
+        "mood_color": "Intimate, peaceful, amber-indigo",
+        "audio": {
+          "ambient": "fire, crickets, distant firecrackers",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MWS, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà and Tro sitting close on a low bench by the fire, wrapped in a shared blanket. the night courtyard, firelight flickering on their faces. Warm firelight, cool blue night behind. Intimate, peaceful, amber-indigo.",
+        "video_prompt": "MWS. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà and Tro sit close by the fire under a shared blanket, watching the pot boil. the night courtyard, firelight flickering on their faces. Warm firelight, cool blue night behind. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire, crickets, distant firecrackers.",
+        "character_core_refs": [
+          "Ba",
+          "Tro"
+        ],
+        "continuity_note": "Quiet bonding."
+      },
+      {
+        "number": 20,
+        "act": 2,
+        "scene_title": "Bà kể chuyện",
+        "duration_seconds": 8,
+        "shot_size": "CU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow push in",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "Bà speaks softly, her eyes warm with memory as firelight flickers across her face.",
+        "context": "by the fire at night",
+        "lighting": "Warm flickering firelight",
+        "mood_color": "Nostalgic, loving, amber",
+        "audio": {
+          "ambient": "fire crackle, crickets",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": "Ngày xưa bà cũng ngồi canh nồi bánh với cụ, y như con bây giờ.",
+          "dialogue_voice": "vi-VN-HoaiMyNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà speaking softly, eyes distant and warm with memory, firelight dancing on her face. by the fire at night. Warm flickering firelight. Nostalgic, loving, amber.",
+        "video_prompt": "CU. Slow push in. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà speaks softly, her eyes warm with memory as firelight flickers across her face. by the fire at night. Warm flickering firelight. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle, crickets. The character says in Vietnamese: \"Ngày xưa bà cũng ngồi canh nồi bánh với cụ, y như con bây giờ.\".",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "Generational echo — deepens theme."
+      },
+      {
+        "number": 21,
+        "act": 2,
+        "scene_title": "Tro ngủ gật",
+        "duration_seconds": 8,
+        "shot_size": "MCU",
+        "camera_angle": "Slightly high-angle",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro's eyelids droop and his head nods until he leans asleep against Bà's shoulder.",
+        "context": "by the fire under the blanket",
+        "lighting": "Soft warm firelight",
+        "mood_color": "Tender, drowsy, warm",
+        "audio": {
+          "ambient": "faint fire, crickets, soft breathing",
+          "foley": "",
+          "spot_sfx": "total silence",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Dissolve",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MCU, Slightly high-angle. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro's eyelids drooping, head slowly nodding, then leaning onto Bà's shoulder asleep. by the fire under the blanket. Soft warm firelight. Tender, drowsy, warm.",
+        "video_prompt": "MCU. Static. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro's eyelids droop and his head nods until he leans asleep against Bà's shoulder. by the fire under the blanket. Soft warm firelight. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: faint fire, crickets, soft breathing.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "SILENCE beat #2."
+      },
+      {
+        "number": 22,
+        "act": 2,
+        "scene_title": "Bà nhìn Tro ngủ",
+        "duration_seconds": 8,
+        "shot_size": "CU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "Bà gazes down at sleeping Tro with glistening eyes and gently tucks the blanket over him.",
+        "context": "firelit night",
+        "lighting": "Warm firelight, a soft catchlight of tears",
+        "mood_color": "Overwhelming tenderness, amber",
+        "audio": {
+          "ambient": "fire crackle, crickets",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Fade to black",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà looking down at the sleeping Tro with glistening loving eyes, gently pulling the blanket over him. firelit night. Warm firelight, a soft catchlight of tears. Overwhelming tenderness, amber.",
+        "video_prompt": "CU. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà gazes down at sleeping Tro with glistening eyes and gently tucks the blanket over him. firelit night. Warm firelight, a soft catchlight of tears. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: fire crackle, crickets.",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "Emotional swell before Act 3."
+      },
+      {
+        "number": 23,
+        "act": 3,
+        "scene_title": "Sáng mùng Một",
+        "duration_seconds": 8,
+        "shot_size": "WS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow dolly in",
+        "lens": "50mm",
+        "subject": "",
+        "action": "Bright New Year morning light floods the courtyard; cooked bánh chưng rest stacked and cooling.",
+        "context": "the courtyard on New Year's Day morning, red couplets, kumquat tree",
+        "lighting": "Bright fresh golden morning light",
+        "mood_color": "Hopeful, fresh, warm gold",
+        "audio": {
+          "ambient": "birdsong, distant Tết music, firecrackers",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. WS, Eye-level. morning light flooding the courtyard, the cooled pot, bánh chưng stacked and drying. the courtyard on New Year's Day morning, red couplets, kumquat tree. Bright fresh golden morning light. Hopeful, fresh, warm gold.",
+        "video_prompt": "WS. Slow dolly in. Bright New Year morning light floods the courtyard; cooked bánh chưng rest stacked and cooling. the courtyard on New Year's Day morning, red couplets, kumquat tree. Bright fresh golden morning light. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: birdsong, distant Tết music, firecrackers.",
+        "character_core_refs": [],
+        "continuity_note": "New day, resolution begins."
+      },
+      {
+        "number": 24,
+        "act": 3,
+        "scene_title": "Tro tìm chiếc bánh méo",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Handheld follow",
+        "lens": "50mm",
+        "subject": "Tro",
+        "action": "Tro searches the stack and carefully lifts out his own lumpy crooked bánh chưng.",
+        "context": "by the stacked bánh in morning light",
+        "lighting": "Bright morning light",
+        "mood_color": "Eager, sweet, warm gold",
+        "audio": {
+          "ambient": "birdsong",
+          "foley": "shuffling leaves",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Eye-level. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro searching the stack of bánh, carefully picking out his own lumpy crooked one. by the stacked bánh in morning light. Bright morning light. Eager, sweet, warm gold.",
+        "video_prompt": "MS. Handheld follow. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro searches the stack and carefully lifts out his own lumpy crooked bánh chưng. by the stacked bánh in morning light. Bright morning light. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: birdsong.",
+        "character_core_refs": [
+          "Tro"
+        ],
+        "continuity_note": "PAYOFF: the crooked bánh returns."
+      },
+      {
+        "number": 25,
+        "act": 3,
+        "scene_title": "Tro dâng bánh cho bà",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Low-angle",
+        "camera_movement": "Slow push in",
+        "lens": "50mm",
+        "subject": "Ba, Tro",
+        "action": "Tro holds the crooked bánh up in both hands and offers it to Bà with a shy proud smile.",
+        "context": "in the bright courtyard",
+        "lighting": "Warm golden morning light on both",
+        "mood_color": "Loving, climactic, warm gold",
+        "audio": {
+          "ambient": "birdsong, faint firecrackers",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": "Con tặng bà chiếc bánh đầu tiên con gói.",
+          "dialogue_voice": "vi-VN-NamMinhNeural"
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Low-angle. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro holding the crooked bánh up in both hands toward Bà, offering it with a shy proud smile. in the bright courtyard. Warm golden morning light on both. Loving, climactic, warm gold.",
+        "video_prompt": "MS. Slow push in. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Tro holds the crooked bánh up in both hands and offers it to Bà with a shy proud smile. in the bright courtyard. Warm golden morning light on both. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: birdsong, faint firecrackers. The character says in Vietnamese: \"Con tặng bà chiếc bánh đầu tiên con gói.\".",
+        "character_core_refs": [
+          "Ba",
+          "Tro"
+        ],
+        "continuity_note": "CLIMAX — the gift."
+      },
+      {
+        "number": 26,
+        "act": 3,
+        "scene_title": "Bà nhận bánh",
+        "duration_seconds": 8,
+        "shot_size": "CU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "Bà takes the crooked bánh in her hands, looks down at it and her eyes brim with tears.",
+        "context": "morning courtyard",
+        "lighting": "Soft golden light, tears catching the glow",
+        "mood_color": "Overwhelmed with joy, warm gold",
+        "audio": {
+          "ambient": "faint birdsong",
+          "foley": "",
+          "spot_sfx": "total silence",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hold",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà taking the crooked bánh in her wrinkled hands, looking down at it, eyes welling up. morning courtyard. Soft golden light, tears catching the glow. Overwhelmed with joy, warm gold.",
+        "video_prompt": "CU. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Bà takes the crooked bánh in her hands, looks down at it and her eyes brim with tears. morning courtyard. Soft golden light, tears catching the glow. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: faint birdsong.",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "SILENCE beat #3 — the payoff of the whole film."
+      },
+      {
+        "number": 27,
+        "act": 3,
+        "scene_title": "Nước mắt hạnh phúc của bà",
+        "duration_seconds": 6,
+        "shot_size": "ECU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Static",
+        "lens": "50mm",
+        "subject": "Ba",
+        "action": "A happy tear rolls down Bà's wrinkled cheek as a trembling smile spreads across her face.",
+        "context": "extreme close on her face",
+        "lighting": "Soft golden rim light on the tear",
+        "mood_color": "Cathartic joy, warm gold",
+        "audio": {
+          "ambient": "faint birdsong",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Hard cut",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. ECU, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. a happy tear rolling down Bà's wrinkled cheek as a trembling smile forms. extreme close on her face. Soft golden rim light on the tear. Cathartic joy, warm gold.",
+        "video_prompt": "ECU. Static. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. A happy tear rolls down Bà's wrinkled cheek as a trembling smile spreads across her face. extreme close on her face. Soft golden rim light on the tear. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: faint birdsong.",
+        "character_core_refs": [
+          "Ba"
+        ],
+        "continuity_note": "Nước mắt — the emotional peak (payoff of Tro's tear in Act 2)."
+      },
+      {
+        "number": 28,
+        "act": 3,
+        "scene_title": "Bà ôm Tro",
+        "duration_seconds": 8,
+        "shot_size": "MS",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow dolly in",
+        "lens": "50mm",
+        "subject": "Ba, Tro",
+        "action": "Bà pulls Tro into a warm embrace; both laugh and cry as the crooked bánh rests between them.",
+        "context": "the bright courtyard",
+        "lighting": "Warm golden morning light",
+        "mood_color": "Joyful catharsis, warm gold",
+        "audio": {
+          "ambient": "birdsong, distant Tết music, firecrackers",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": "Đây là chiếc bánh ngon nhất bà từng có.",
+          "dialogue_voice": "vi-VN-HoaiMyNeural"
+        },
+        "transition_to_next": "Dissolve",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. MS, Eye-level. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà pulling Tro into a warm embrace, both laughing and crying, the crooked bánh between them. the bright courtyard. Warm golden morning light. Joyful catharsis, warm gold.",
+        "video_prompt": "MS. Slow dolly in. Bà (grandmother), a 68-year-old Vietnamese woman with a kind deeply-lined face, warm brown eyes, silver hair pulled into a low neat bun, wearing a faded indigo áo bà ba with a brown headscarf, thin gentle hands with prominent knuckles. Tro, a 6-year-old Vietnamese boy with a round sun-kissed face, big dark expressive eyes, short tousled black hair, a small gap-toothed smile, wearing a slightly oversized brown handwoven shirt and dark cotton trousers, barefoot, small delicate hands. Bà pulls Tro into a warm embrace; both laugh and cry as the crooked bánh rests between them. the bright courtyard. Warm golden morning light. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: birdsong, distant Tết music, firecrackers. The character says in Vietnamese: \"Đây là chiếc bánh ngon nhất bà từng có.\".",
+        "character_core_refs": [
+          "Ba",
+          "Tro"
+        ],
+        "continuity_note": "Nụ cười + nước mắt together — the film's heart."
+      },
+      {
+        "number": 29,
+        "act": 3,
+        "scene_title": "Chiếc bánh méo trên bàn thờ",
+        "duration_seconds": 6,
+        "shot_size": "CU",
+        "camera_angle": "Eye-level",
+        "camera_movement": "Slow push in",
+        "lens": "50mm",
+        "subject": "",
+        "action": "The small crooked bánh is placed with pride at the center of the ancestral altar among the perfect ones.",
+        "context": "the family altar with incense, kumquats, red couplets",
+        "lighting": "Warm candlelight and incense smoke",
+        "mood_color": "Reverent, warm, amber gold",
+        "audio": {
+          "ambient": "soft crackle of incense, distant Tết music",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Dissolve",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. CU, Eye-level. the small crooked bánh chưng placed with pride at the center of the family ancestral altar among perfect ones. the family altar with incense, kumquats, red couplets. Warm candlelight and incense smoke. Reverent, warm, amber gold.",
+        "video_prompt": "CU. Slow push in. The small crooked bánh is placed with pride at the center of the ancestral altar among the perfect ones. the family altar with incense, kumquats, red couplets. Warm candlelight and incense smoke. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: soft crackle of incense, distant Tết music.",
+        "character_core_refs": [],
+        "continuity_note": "The imperfect bánh honored — theme resolved."
+      },
+      {
+        "number": 30,
+        "act": 3,
+        "scene_title": "Bình minh làng quê — khép lại",
+        "duration_seconds": 8,
+        "shot_size": "EWS",
+        "camera_angle": "High-angle",
+        "camera_movement": "Slow aerial drift back",
+        "lens": "24mm wide",
+        "subject": "",
+        "action": "The same village, now in warm golden morning light, smoke rising, life gently stirring for the new year.",
+        "context": "rural North Vietnam, New Year's Day morning, rice fields glowing",
+        "lighting": "Warm golden morning light over the mist",
+        "mood_color": "Full-circle warmth, hopeful, amber gold",
+        "audio": {
+          "ambient": "birdsong, distant Tết music and firecrackers, gentle wind",
+          "foley": "",
+          "spot_sfx": "",
+          "dialogue": null,
+          "dialogue_voice": null
+        },
+        "transition_to_next": "Fade to black",
+        "image_prompt": "Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. EWS, High-angle. the same misty village at morning, now with warm golden light and rising kitchen smoke, life stirring. rural North Vietnam, New Year's Day morning, rice fields glowing. Warm golden morning light over the mist. Full-circle warmth, hopeful, amber gold.",
+        "video_prompt": "EWS. Slow aerial drift back. The same village, now in warm golden morning light, smoke rising, life gently stirring for the new year. rural North Vietnam, New Year's Day morning, rice fields glowing. Warm golden morning light over the mist. Warm cinematic realism, Vietnamese Lunar New Year (Tết) countryside, shot on 35mm film look, soft natural light, gentle film grain, rich amber-and-jade color grade, shallow depth of field, photorealistic. Ambient: birdsong, distant Tết music and firecrackers, gentle wind.",
+        "character_core_refs": [],
+        "continuity_note": "MIRROR of opening shot 1 — same frame, meaning transformed from quiet to full of love."
+      }
+    ]
+  },
+  "shots": [
+    {
+      "number": 1,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-1.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 2,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-2.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 3,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-3.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-3.mp3",
+      "retries": 0
+    },
+    {
+      "number": 4,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-4.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-4.mp3",
+      "retries": 0
+    },
+    {
+      "number": 5,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-5.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 6,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "pending",
+      "video_path": "",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 1
+    },
+    {
+      "number": 7,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-7.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 8,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-8.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 9,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-9.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 10,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-10.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 11,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-11.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 12,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-12.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-12.mp3",
+      "retries": 0
+    },
+    {
+      "number": 13,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-13.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 14,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-14.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 15,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-15.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-15.mp3",
+      "retries": 0
+    },
+    {
+      "number": 16,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-16.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 17,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-17.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-17.mp3",
+      "retries": 0
+    },
+    {
+      "number": 18,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-18.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 19,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-19.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 20,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-20.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-20.mp3",
+      "retries": 0
+    },
+    {
+      "number": 21,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-21.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 22,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-22.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 23,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-23.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 24,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-24.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 25,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-25.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-25.mp3",
+      "retries": 0
+    },
+    {
+      "number": 26,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-26.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 27,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-27.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 28,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-28.mp4",
+      "vocal_status": "done",
+      "vocal_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/vocal-shot-28.mp3",
+      "retries": 0
+    },
+    {
+      "number": 29,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-29.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    },
+    {
+      "number": 30,
+      "image_status": "failed",
+      "image_path": "",
+      "video_status": "done",
+      "video_path": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/shot-30.mp4",
+      "vocal_status": "none",
+      "vocal_path": "",
+      "retries": 0
+    }
+  ],
+  "film_raw": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/film-raw.mp4",
+  "film_final": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/film-final.mp4",
+  "error": "",
+  "ts_start": "2026-07-03T00:18:46.815Z",
+  "ts_last": "2026-07-03T01:10:52.829Z"
+}

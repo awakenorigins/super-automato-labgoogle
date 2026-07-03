@@ -65,6 +65,19 @@ export LABGOOGLE_ACCOUNT="YOUR_ACCOUNT"   # display name or email prefix, never 
   --brief "30-second film about a boy and his first banh chung, Pixar 3D style" \
   --project "My-Film" --json
 ./bin/labgoogle assemble mux --video v.mp4 --audio a.m4a --out final.mp4 --fit loop-video --json
+
+# v0.6.0 — Master Director (storyboard-first, SFX-only, Vietnamese vocal, 5 min)
+# Provide storyboard.fallback.json in the output dir to skip NLM (recommended)
+./bin/labgoogle director run \
+  --brief "Phim điện ảnh 5 phút - câu bé tro và chiếc bàn" \
+  --project "Automato-Film-Tro" \
+  --minutes 5 \
+  --no-music \
+  --vocal vi \
+  --out out/ --json
+
+# Or run via the retry-wrapper script (recommended for long renders):
+bash scripts/run-tro-5min.sh
 ```
 
 Every command returns JSON (`--json`) and writes screenshot proofs into `out/`.

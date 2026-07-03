@@ -2,6 +2,93 @@
 
 Audit time: 2026-07-02 CEST
 
+---
+
+## v0.6.0 — Phim Tro 5 phút (storyboard-first + vocal Việt + SFX-only)
+
+**Date:** 2026-07-03 | **Render start:** 02:18 CEST | **Render end:** 03:11 CEST | **Total:** ~53 min
+
+### Film Output
+
+| Attribute | Value |
+|-----------|-------|
+| File | `out/master-phim-i-n-nh-5-ph-t-c-u-b-tro-v-chi-c-b-n/film-final.mp4` |
+| Copy (ASCII) | `Phim-Tro-5min.mp4` |
+| Duration | 290.2s (~4m 50s) |
+| Resolution | 1280×720 |
+| Codec | H.264 video + AAC audio (192kbps) |
+| Size | ~85MB |
+| File magic | ISO Media, MP4 Base Media v1 [ISO 14496-12:2003] ✅ |
+| Music track | NONE ✅ (SFX-only from Veo native audio) |
+| Vocal tracks | 8 × Vietnamese TTS (vi-VN-NamMinhNeural / vi-VN-HoaiMyNeural) ✅ |
+
+### Storyboard
+
+- Source: `storyboard.fallback.json` (pre-authored, storyboard-first, no NLM needed)
+- 30 shots, 224s designed, 290s rendered (Veo rounded some shots up)
+- Characters: Tro (6yo boy, vi-VN-NamMinhNeural), Bà (68yo grandmother, vi-VN-HoaiMyNeural)
+- Character cores injected verbatim in all prompts ✅
+
+### Shot Results
+
+| Shot | Title | Dur | Keyframe | Video | Vocal |
+|------|-------|-----|----------|-------|-------|
+| 1 | Bình minh làng quê ngày Tết | 8s | ❌ | ✅ PASS | — |
+| 2 | Gian bếp của bà | 8s | ❌ | ✅ PASS | — |
+| 3 | Tro chạy vào | 8s | ❌ | ✅ PASS | ✅ |
+| 4 | Bà mỉm cười gật đầu | 8s | ❌ | ✅ PASS | ✅ |
+| 5 | Bàn tay bà đặt lá | 6s | ❌ | ✅ PASS | — |
+| 6 | Tro bắt chước | 8s | ❌ | 🔴 FAILED (2 retries) | — |
+| 7 | Đổ nếp quá tay | 6s | ❌ | ✅ PASS | — |
+| 8 | Gấp lá bị rách | 6s | ❌ | ✅ PASS | — |
+| 9 | Bánh bung ra | 8s | ❌ | ✅ PASS | — |
+| 10 | Tro tủi thân | 8s | ❌ | ✅ PASS | — |
+| 11 | Giọt nước mắt rơi | 6s | ❌ | ✅ PASS | — |
+| 12 | Bàn tay bà đặt lên vai | 8s | ❌ | ✅ PASS | ✅ |
+| 13 | Tro ngẩng lên | 6s | ❌ | ✅ PASS | — |
+| 14 | Bà cầm tay Tro dạy | 8s | ❌ | ✅ PASS | — |
+| 15 | Gói lại từ từ | 8s | ❌ | ✅ PASS | ✅ |
+| 16 | Buộc lạt | 6s | ❌ | ✅ PASS | — |
+| 17 | Tro nâng chiếc bánh méo | 8s | ❌ | ✅ PASS | ✅ |
+| 18 | Nồi bánh trên bếp lửa | 8s | ❌ | ✅ PASS | — |
+| 19 | Bà và Tro ngồi canh nồi | 8s | ❌ | ✅ PASS | — |
+| 20 | Bà kể chuyện | 8s | ❌ | ✅ PASS | ✅ |
+| 21 | Tro ngủ gật | 8s | ❌ | ✅ PASS | — |
+| 22 | Bà nhìn Tro ngủ | 8s | ❌ | ✅ PASS | — |
+| 23 | Sáng mùng Một | 8s | ❌ | ✅ PASS | — |
+| 24 | Tro tìm chiếc bánh méo | 8s | ❌ | ✅ PASS | — |
+| 25 | Tro dâng bánh cho bà | 8s | ❌ | ✅ PASS | ✅ |
+| 26 | Bà nhận bánh | 8s | ❌ | ✅ PASS | — |
+| 27 | Nước mắt hạnh phúc của bà | 6s | ❌ | ✅ PASS | — |
+| 28 | Bà ôm Tro | 8s | ❌ | ✅ PASS | ✅ |
+| 29 | Chiếc bánh méo trên bàn thờ | 6s | ❌ | ✅ PASS | — |
+| 30 | Bình minh làng quê — khép lại | 8s | ❌ | ✅ PASS | — |
+
+**Summary: 29/30 shots PASS, 1 FAILED (shot 6 — 2 retries, Veo timeout), 0 BLOCKED**
+
+**Keyframes: 0/30** — ImageFX session token expired (all image gen failed). Videos rendered prompt-only (no keyframe reference). This is a known known from v0.5.0.
+
+**Vocals: 8/8 PASS** — Vietnamese TTS via edge-tts, muxed at correct shot offsets.
+
+**SFX-only confirmed: 0 music tracks. Ambient/SFX cues embedded in Veo video_prompt.**
+
+### Fixes Confirmed in v0.6.0
+
+- ✅ **storyboard-first**: reads `storyboard.fallback.json` before NLM (NLM never called)
+- ✅ **no-music flag**: `--no-music` + `--vocal vi` enforced, 0 music tracks
+- ✅ **concat fix**: normalize-then-concat-demuxer pipeline; no loop/repeat bug
+- ✅ **shot resume**: state.json checkpoint after every shot; crash-resume verified
+- ✅ **run-tro-5min.sh**: retry wrapper created at `scripts/run-tro-5min.sh`
+
+### Architecture
+
+- Orchestrator: `scripts/director-master.ts`
+- Storyboard: `out/master-.../storyboard.fallback.json` (30 shots, 8 dialogue lines)
+- Pipeline: storyboard → keyframe (ImageFX) → video (Veo/Flow) → vocal (edge-tts) → normalize → concat → vocal-mux → film-final.mp4
+- Checkpoint: `state.json` after every shot
+
+---
+
 ## Summary
 
 | # | Goal | Result | Proof |

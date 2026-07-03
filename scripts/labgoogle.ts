@@ -844,9 +844,9 @@ Usage:
       return await cmdNlmList(args);
     }
     if (cmd === 'director' && sub === 'run') {
-      // Delegate to director.ts with remaining args
+      // Delegate to the MASTER (storyboard-first) orchestrator with remaining args
       const dirArgs = process.argv.slice(4); // skip 'director' 'run'
-      const dirScript = path.join(path.dirname(new URL(import.meta.url).pathname), 'director.ts');
+      const dirScript = path.join(path.dirname(new URL(import.meta.url).pathname), 'director-master.ts');
       const shellArgs = dirArgs.map((a: string) => a.includes(' ') ? `"${a.replace(/"/g, '\\"')}"` : a).join(' ');
       try {
         execFileSync('npx', ['tsx', dirScript, ...dirArgs], { stdio: 'inherit', env: { ...process.env, NODE_OPTIONS: '' }, timeout: 7200000 });

@@ -1,0 +1,37 @@
+{
+ "url": "https://labs.google/fx/tools/flow",
+ "title": "Google Flow - AI Creative Studio for Video, Images & Custom Tools",
+ "textareas": [
+  {
+   "ph": "",
+   "aria": null,
+   "name": "g-recaptcha-response",
+   "visible": false
+  }
+ ],
+ "editables": [],
+ "buttons": [
+  "help_outlinedFlow Help CenterFlow Help Center",
+  "ULTRA",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "editEdit project",
+  "deleteDelete project",
+  "add_2New project"
+ ],
+ "inputs": []
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# labgoogle launcher — runs the tsx CLI from anywhere
+DIR="/root/.openclaw/workspace/AUTOMATION-LABGOOGLE"
+cd /root/.openclaw/workspace && exec npx tsx "$DIR/scripts/labgoogle.ts" "$@"

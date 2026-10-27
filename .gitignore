@@ -1,0 +1,31 @@
+# Auth/profile — NEVER commit
+google-flow-vps-profile/
+google-flow-vps-profile-v2/
+google-flow-labgoogle-profile-v3/
+google-flow-login-profile/
+*-profile/
+*-profile-*/
+*storage-state.json
+*storage*state*.json
+cookies*
+*.cookies
+Cookies
+.env
+*.pem
+*.key
+
+# Runtime output / internal proofs
+out/
+*.png
+*.mp4
+*.mp3
+*.m4a
+*.wav
+node_modules/
+
+# Runtime state (local, machine-specific)
+flow-project-registry.json
+*.err
+
+# Director orchestrator output
+director-*/

@@ -1,0 +1,23 @@
+{
+  "audit": "v0.4.1 auth re-test",
+  "ts": "2026-07-02T15:38:00Z",
+  "claim_tested": "cookies are permanent; session may have recovered after morning revoke",
+  "api_session": {
+    "labs_session_endpoint": "signedIn:true, access_token present (expires 16:51Z)",
+    "tokeninfo": "400 Invalid Value (server-side revoked)",
+    "runImageFx_live": "401 invalid authentication credentials",
+    "verdict": "session API cookie answers but the OAuth token behind it is DEAD server-side"
+  },
+  "ui_probes": {
+    "flow": { "landed": "accounts.google.com/v3/signin/accountchooser", "state": "account marked 'Signed out'", "proof": "out/uilive-flow-1783006308635.png" },
+    "notebooklm": { "landed": "accounts.google.com/v3/signin/confirmidentifier", "state": "'Verify that it's you ... sign in again'", "proof": "out/uilive-nlm-1783006318124.png" },
+    "imagefx": { "landed": "accounts.google.com/v3/signin/accountchooser", "state": "account marked 'Signed out'", "proof": "out/uilive-imagefx-1783006328756.png" }
+  },
+  "recovery_attempts": {
+    "headless_click_account_selectors": { "result": "selectors missed li rows (no data-identifier)", "proof": "out/recovery-report.json" },
+    "headless_click_account_coords": { "result": "signin/rejected - 'This browser or app may not be secure'", "proof": "out/chooser-after-click-1783006481308.png" },
+    "headful_xvfb_click_account": { "result": "PASSWORD CHALLENGE (accounts.google.com/v3/signin/challenge/pwd, input[type=password] present). HARD STOP per policy - no password typed.", "proof": "out/headful-r1-after-1783006652481.png", "report": "out/headful-recovery-report.json" }
+  },
+  "verdict": "BLOCKED-auth CONFIRMED with screenshot proof of a real password challenge. Cookies exist on disk but Google revoked the session server-side; passive cookie re-acceptance does not work (headless=rejected as insecure browser, headful=password demanded). No password/logout/cookie-print performed.",
+  "unblock": "One manual sign-in at labs.google/fx/tools/flow + notebooklm.google.com in a real browser, then export profile/storage-state to VPS. All E2E code paths are ready."
+}

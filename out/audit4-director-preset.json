@@ -1,0 +1,26 @@
+{
+  "audit": "v0.4.0 — MUC 2: presets director-film + podcast-video",
+  "ts": "2026-07-02T15:05:00Z",
+  "presets": [
+    { "file": "presets/director-film.txt", "purpose": "brief -> director shooting script: 5-8s scenes, verbatim character sheets, image+video prompts, JSON + ---HUMAN--- part" },
+    { "file": "presets/podcast-video.txt", "purpose": "podcast topic -> Vietnamese 2-host script + per-segment image prompts + music prompt + labgoogle assembly steps" }
+  ],
+  "liveTest": {
+    "cmd": "notebooklm chat --notebook 07790274-d301-4f08-9d62-5c67c7f7c36d --preset director-film --prompt 'phim 30s: cau be Tro va chiec banh chung dau tien, hoat hinh thieu nhi'",
+    "status": "BLOCKED-auth",
+    "stage": "blocked-auth-wall",
+    "detail": "NotebookLM UI redirected to accounts.google.com/v3/signin/confirmidentifier (Google web session expired). API-level labs session token also rejected (401) — see audit4-image.json for the full auth post-mortem.",
+    "proof": "out/nlm-chat-1783004148334.png"
+  },
+  "offlineValidation": {
+    "cmd": "python3 scripts/validate-director-preset.py",
+    "status": "PASS",
+    "pass": true,
+    "sceneCount": 5,
+    "totalDuration": 30,
+    "checksTotal": 50,
+    "checksFailed": 0,
+    "detail": "Validator enforces the full preset output contract: JSON parses, 4-6 scenes for 30s, each scene 5-8s, all 9 required fields, character sheet repeated VERBATIM in character_sheet + image_prompt + video_prompt, global style repeated verbatim, camera-movement keyword in every video_prompt, ---HUMAN--- readable part present. 50/50 checks pass on the contract sample. Rerun against a real model response with: python3 scripts/validate-director-preset.py response.txt",
+    "proof": "out/audit4-director-preset-validation.json"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "audit": "v0.4.0 — MUC 3: assemble (ffmpeg 6.1.1)",
+  "ts": "2026-07-02T14:45:00Z",
+  "results": [
+    {
+      "cmd": "assemble concat --clips out/flow-video-1782955040605.mp4,out/flow-video-1782955361413.mp4 --out out/assemble-concat.mp4 --size 1280x720",
+      "status": "PASS",
+      "out": "out/assemble-concat.mp4",
+      "proof": { "size": 2458953, "file": "ISO Media, MP4 Base Media v1", "duration": 8.021, "streams": ["video", "audio"], "note": "2x 4.01s Veo clips normalized to 1280x720@24fps, silent-audio injected (Veo clips have no audio track), concat = 8.021s" }
+    },
+    {
+      "cmd": "assemble mix --audio out/nlm-podcast-1782971840229.m4a --music out/music-audio-1782969952057.wav --out out/assemble-mix.m4a --music-volume 0.15 --loop",
+      "status": "PASS",
+      "out": "out/assemble-mix.m4a",
+      "proof": { "size": 28352030, "file": "ISO Media, Apple iTunes AAC-LC (.M4A) Audio", "duration": 1155.285, "voiceDuration": 1155.286, "note": "30s MusicFX WAV looped under the 19:15 NotebookLM podcast at vol 0.15 with 3s fade-out; output duration matches voice to the millisecond" }
+    },
+    {
+      "cmd": "assemble mux --video out/assemble-concat.mp4 --audio out/music-audio-1782969952057.wav --out out/assemble-mux.mp4 --fit loop-video",
+      "status": "PASS",
+      "out": "out/assemble-mux.mp4",
+      "proof": { "size": 8940384, "file": "ISO Media, MP4 Base Media v1", "duration": 30.0, "videoDuration": 8.021, "audioDuration": 30.0, "note": "8s video looped to cover the full 30s audio (fit=loop-video)" }
+    }
+  ]
+}

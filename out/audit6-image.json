@@ -1,0 +1,26 @@
+{
+  "test": "1b-image-gen",
+  "status": "PASS",
+  "ts": "2026-07-02T21:57:00Z",
+  "engine": "flow-compositor",
+  "note": "Google merged ImageFX into Flow (labs.google/fx/tools/flow). API aisandbox-pa returns 403 PERMISSION_DENIED for separate ImageFX API; but Flow compositor chat generates images natively via Gemini Omni Flash. ImageFX URL redirects to Flow with ?from=imagefx.",
+  "prompt": "Generate an image: A small Vietnamese boy named Tro wearing a bright yellow Ao Dai, happily folding green dong leaves to wrap banh chung for Tet holiday. Warm golden afternoon sunlight, 3D Pixar-style children animation. High quality.",
+  "images": [
+    {
+      "path": "out/flow-image-gen-1783029473976-0.png",
+      "format": "JPEG",
+      "resolution": "1376x768",
+      "size_bytes": 806594
+    },
+    {
+      "path": "out/flow-image-gen-1783029474157-1.png",
+      "format": "JPEG",
+      "resolution": "1376x768",
+      "size_bytes": 769796
+    }
+  ],
+  "proofs": [
+    "out/flow-img-typed-1783029416665.png",
+    "out/flow-img-final-1783029474161.png"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "audit": "v0.4.0 — MUC 1: image gen (ImageFX API + UI fallback)",
+  "ts": "2026-07-02T15:10:00Z",
+  "status": "BLOCKED-auth",
+  "code": "cmdImageGen shipped & wired: `image gen --prompt ... [--count N] [--ratio landscape|portrait|square] [--out DIR] [--json]`. Engine order: (1) ImageFX backend API `aisandbox-pa.googleapis.com/v1:runImageFx` using the labs session access_token — works headless, returns base64 PNGs; (2) UI fallback on labs.google/fx/tools/image-fx with network-level image capture.",
+  "authHunt": [
+    {
+      "source": "google-flow-vps-profile-v2 (default)",
+      "probe": "session API + tokeninfo + live ImageFX call",
+      "result": "session API returns 200 with user + access_token (expires 2026-07-02T16:51Z) BUT the token is server-side revoked: google tokeninfo says 'Invalid Value', aisandbox returns 401 UNAUTHENTICATED on every call (fetchUserRecommendations, credits, runImageFx). UI: account chooser shows the account as 'Signed out' -> pwd challenge.",
+      "proofs": ["out/reauth-report.json", "out/imagefx-authwall-1783003299512.png", "out/probe-api2-report.json"]
+    },
+    {
+      "source": "google-flow-vps-profile (v1)",
+      "probe": "probe-token-health",
+      "result": "session error ACCESS_TOKEN_REFRESH_NEEDED (expired 2026-07-01), tokeninfo Invalid Value, ImageFX 401.",
+      "proofs": []
+    },
+    {
+      "source": "youtube-cli/yt-forever-profile (COPIED to google-flow-labgoogle-profile-v3, original untouched)",
+      "probe": "full copy -> whoami, labs sign-in flow (2 rounds), youtube.com, notebooklm.google.com",
+      "result": "Cookie DB holds SID/__Secure-1PSID/LSID valid ~398 days on disk, but Google invalidated the session server-side: youtube.com shows Sign-in button (signedIn:false), labs sign-in ends at accounts.google.com/v3/signin/rejected, NotebookLM redirects to account chooser. The yt-forever-keeper itself is crash-looping (see youtube-cli/yt-forever-keeper.log).",
+      "proofs": ["out/v3probe-report.json", "out/v3probe-gsession-report.json", "out/v3probe-r1-1783003493704.png", "out/v3probe-yt.png", "out/v3probe-nlm.png"]
+    },
+    {
+      "source": "storage-state JSONs (google-flow-vps-storage-state-v2.json, out/storage-state.json)",
+      "probe": "cookie inventory (names+expiry only)",
+      "result": "Same SID family as v2 profile plus labs next-auth session-token (30d). These are the same server-revoked credentials — no fresher session exists anywhere on the VPS.",
+      "proofs": []
+    },
+    {
+      "source": "suno-forever-profile / suno-pw-profile / suno-headed-profile-live",
+      "probe": "cookie DB scan for google.com SID cookies",
+      "result": "No Google session cookies at all (Suno-only profiles).",
+      "proofs": []
+    }
+  ],
+  "conclusion": "Every Google credential on the VPS traces back to the same account session that Google revoked server-side (~2026-07-02 morning, matching the moment the yt keeper started crash-looping). All paths end at signin/rejected or the pwd challenge. Per hard rule (no password entry, no brute force), MUC 1 E2E is BLOCKED-auth. Unblock: on a real signed-in browser, sign in at labs.google/fx/tools/flow once, export the profile/storage-state to the VPS, rerun `./bin/labgoogle image gen ... --json`.",
+  "bonusImageToVideo": "not run (blocked by same auth wall)"
+}

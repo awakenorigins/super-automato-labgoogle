@@ -1,0 +1,44 @@
+{
+  "steps": [
+    {
+      "step": "open-flow",
+      "url": "https://labs.google/fx/tools/flow",
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/reauth-open-1782982614125.png"
+    },
+    {
+      "step": "session-initial",
+      "ok": false
+    },
+    {
+      "step": "round-0",
+      "url": "https://accounts.google.com/v3/signin/accountchooser?client_id=365941595420-v51i7q8ik0crmaoltkhuo5ogb1kekl6f.a",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/reauth-r0-1782982635519.png"
+    },
+    {
+      "step": "round-1",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ADCchmaBjqNav7JT-siRCh2xFI-T-CXAZZDnN2I7zFMps8pOvH-y44j",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/reauth-r1-1782982646258.png"
+    },
+    {
+      "step": "round-2",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ADCchmaBjqNav7JT-siRCh2xFI-T-CXAZZDnN2I7zFMps8pOvH-y44j",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/reauth-r2-1782982656830.png"
+    },
+    {
+      "step": "round-3",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ADCchmaBjqNav7JT-siRCh2xFI-T-CXAZZDnN2I7zFMps8pOvH-y44j",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/reauth-r3-1782982668033.png"
+    },
+    {
+      "step": "round-4",
+      "url": "https://accounts.google.com/v3/signin/challenge/pwd?TL=ADCchmaBjqNav7JT-siRCh2xFI-T-CXAZZDnN2I7zFMps8pOvH-y44j",
+      "ok": false,
+      "shot": "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/reauth-r4-1782982678660.png"
+    }
+  ],
+  "labsSignedIn": false
+}

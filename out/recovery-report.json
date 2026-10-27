@@ -1,0 +1,63 @@
+{
+  "ts": "2026-07-02T15:32:59.100Z",
+  "rounds": [
+    {
+      "round": 1,
+      "steps": [
+        {
+          "step": "land",
+          "url": "https://accounts.google.com/v3/signin/accountchooser",
+          "authWall": true,
+          "kind": "chooser",
+          "passwordField": 0,
+          "head": "Choose an account\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nRemove an account\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canad"
+        },
+        {
+          "step": "click-account-entry",
+          "clicked": false
+        },
+        {
+          "step": "after-click",
+          "url": "https://accounts.google.com/v3/signin/accountchooser",
+          "authWall": true,
+          "kind": "chooser",
+          "passwordField": 0,
+          "head": "Choose an account\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nRemove an account\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canad"
+        }
+      ],
+      "result": "still-chooser"
+    },
+    {
+      "round": 2,
+      "steps": [
+        {
+          "step": "land",
+          "url": "https://accounts.google.com/v3/signin/accountchooser",
+          "authWall": true,
+          "kind": "chooser",
+          "passwordField": 0,
+          "head": "Choose an account\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nRemove an account\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canad"
+        },
+        {
+          "step": "click-account-entry",
+          "clicked": false
+        },
+        {
+          "step": "after-click",
+          "url": "https://accounts.google.com/v3/signin/accountchooser",
+          "authWall": true,
+          "kind": "chooser",
+          "passwordField": 0,
+          "head": "Choose an account\nFrom Mars Minh\nMASKED@EMAIL\nSigned out\nUse another account\nRemove an account\nAfrikaans\nazərbaycan\nbosanski\ncatalà\nČeština\nCymraeg\nDansk\nDeutsch\neesti\nEnglish (United Kingdom)\nEnglish (United States)\nEspañol (España)\nEspañol (Latinoamérica)\neuskara\nFilipino\nFrançais (Canad"
+        }
+      ],
+      "result": "still-chooser"
+    }
+  ],
+  "proofs": [
+    "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/recovery-r1-land-1783006388980.png",
+    "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/recovery-r1-after-click-1783006398165.png",
+    "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/recovery-r2-land-1783006407711.png",
+    "/root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/recovery-r2-after-click-1783006416838.png"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "ts": "2026-07-02T15:35:35.218Z",
+  "session": {
+    "status": 200,
+    "hasEmail": true,
+    "hasToken": true,
+    "tokenLen": 418,
+    "expires": "2026-07-02T16:51:24.000Z"
+  },
+  "tokeninfo": {
+    "status": 400,
+    "aud": "absent",
+    "scope": 1,
+    "error": "Invalid Value"
+  },
+  "runImageFx": {
+    "status": 401,
+    "ok": false,
+    "bodyHead": "{\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://develo"
+  }
+}

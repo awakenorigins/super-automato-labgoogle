@@ -1,0 +1,14 @@
+type-err TimeoutError: locator.click: Timeout 6000ms exceeded.
+Call log:
+  - waiting for locator('div[contenteditable="true"]:visible, textarea:visible, input[
+{
+ "removed": 0,
+ "fieldCount": 1,
+ "typed": false,
+ "submitted": false,
+ "state": {
+  "url": "https://labs.google/fx/tools/flow/project/f048be1a-2234-40a3-bcaa-639884ce167e",
+  "vids": 0,
+  "bodySnippet": "arrow_back Go Back more_vert More options search Search filter_list Sort & Filter add Add Media help Product Help settings_2 View Settings more_vert More ULTRA dashboard All Media All Media accessibility_new Characters Characters movie View scenes Scenes apps_spark_2 Tools Tools delete View Trash Trash left_panel_close Collapse Collapse Start creating or drop media menu History Untitled session edit_square New session close Close Hi From What would you like to do? Organize my grid into collections Develop a storyboard Create a few versions of an image What do you want to create? add_2 Create a"
+ }
+}

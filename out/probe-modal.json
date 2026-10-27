@@ -1,0 +1,185 @@
+{
+ "url": "https://labs.google/fx/tools/flow/project/bcb5a7b3-eb82-44b0-be40-2f07092a3976",
+ "hasDialog": true,
+ "dialogTag": "DIV",
+ "dialogRole": "dialog",
+ "dialogClass": "sc-74a44e9a-1 jkJmYv",
+ "buttons": [
+  {
+   "text": "arrow_backGo Back",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-7cbbf1fc-2 ewGlDn famhRe jjd",
+   "visible": true
+  },
+  {
+   "text": "more_vertMore options",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-26aa1721-3 ewGlDn famhRe dUD",
+   "visible": true
+  },
+  {
+   "text": "searchSearch",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-eed1ec57-2 ewGlDn famhRe jce",
+   "visible": true
+  },
+  {
+   "text": "filter_listSort & Filter",
+   "aria": null,
+   "cls": "sc-16c4830a-1 dnFqQq sc-e7a64add-0 sc-e7a64add-2 fPutAP blvbdy sc-98525c58-8 iQj",
+   "visible": true
+  },
+  {
+   "text": "addAdd Media",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-5c4c0aea-1 ewGlDn famhRe eqh",
+   "visible": true
+  },
+  {
+   "text": "helpProduct Help",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-51397942-2 ewGlDn famhRe kCs",
+   "visible": true
+  },
+  {
+   "text": "settings_2View Settings",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-a4925f7f-6 ewGlDn famhRe gdB",
+   "visible": true
+  },
+  {
+   "text": "more_vertMore",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-4fec6fdf-1 ewGlDn famhRe lok",
+   "visible": true
+  },
+  {
+   "text": "ULTRA",
+   "aria": null,
+   "cls": "sc-a14123c8-0 iNGyoc",
+   "visible": true
+  },
+  {
+   "text": "dashboardAll Media",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-5 sc-3ce961f7-0 sc-7e7bc024-0 ewG",
+   "visible": true
+  },
+  {
+   "text": "accessibility_newCharacters",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-5 sc-3ce961f7-0 ewGlDn hGbzYr fqb",
+   "visible": true
+  },
+  {
+   "text": "movieView scenes",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-5 sc-3ce961f7-0 ewGlDn hGbzYr fqb",
+   "visible": true
+  },
+  {
+   "text": "apps_spark_2Tools",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-5 sc-3ce961f7-0 ewGlDn hGbzYr fqb",
+   "visible": true
+  },
+  {
+   "text": "deleteView Trash",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-5 sc-3ce961f7-0 ewGlDn hGbzYr fqb",
+   "visible": true
+  },
+  {
+   "text": "left_panel_closeCollapse",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-5 sc-3ce961f7-0 ewGlDn hGbzYr fqb",
+   "visible": true
+  },
+  {
+   "text": "menuHistory",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-c04de9ef-4 ewGlDn famhRe buy",
+   "visible": true
+  },
+  {
+   "text": "edit_squareNew session",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-c04de9ef-4 ewGlDn famhRe buy",
+   "visible": true
+  },
+  {
+   "text": "closeClose",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-c04de9ef-4 ewGlDn famhRe buy",
+   "visible": true
+  },
+  {
+   "text": "Edit a video with Omni",
+   "aria": null,
+   "cls": "sc-16c4830a-1 dnFqQq sc-e7a64add-0 sc-e7a64add-2 fPutAP blvbdy sc-b11461db-4 SaQ",
+   "visible": true
+  },
+  {
+   "text": "Brainstorm with me",
+   "aria": null,
+   "cls": "sc-16c4830a-1 dnFqQq sc-e7a64add-0 sc-e7a64add-2 fPutAP blvbdy sc-b11461db-4 SaQ",
+   "visible": true
+  },
+  {
+   "text": "Teach me about what you can do",
+   "aria": null,
+   "cls": "sc-16c4830a-1 dnFqQq sc-e7a64add-0 sc-e7a64add-2 fPutAP blvbdy sc-b11461db-4 SaQ",
+   "visible": true
+  },
+  {
+   "text": "add_2Create",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-253cad92-0 ewGlDn famhRe joS",
+   "visible": true
+  },
+  {
+   "text": "article_sparkAgent Instructions",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-c4e423a0-1 sc-c4e423a0-2 ewG",
+   "visible": true
+  },
+  {
+   "text": "tuneSettings",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-c4e423a0-1 ewGlDn famhRe kOx",
+   "visible": true
+  },
+  {
+   "text": "arrow_forwardCreate",
+   "aria": null,
+   "cls": "sc-e8425ea6-0 hOBPaw sc-d3791a4f-0 sc-d3791a4f-4 sc-26b30722-5 ewGlDn famhRe jDv",
+   "visible": true
+  }
+ ],
+ "textInputs": [
+  {
+   "tag": "INPUT",
+   "ph": null,
+   "aria": "Editable text",
+   "visible": true
+  },
+  {
+   "tag": "INPUT",
+   "ph": null,
+   "aria": null,
+   "visible": true
+  },
+  {
+   "tag": "DIV",
+   "ph": null,
+   "aria": null,
+   "visible": true
+  },
+  {
+   "tag": "TEXTAREA",
+   "ph": null,
+   "aria": null,
+   "visible": false
+  }
+ ]
+}

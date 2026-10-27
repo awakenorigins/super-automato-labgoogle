@@ -1,0 +1,26 @@
+submitted, waiting for approval prompt...
+approve candidates: [
+ {
+  "tag": "DIV",
+  "role": null,
+  "cls": "sc-f5e999f7-2 hKYDKm",
+  "x": 1050,
+  "y": 306,
+  "w": 288,
+  "h": 40
+ },
+ {
+  "tag": "DIV",
+  "role": null,
+  "cls": "sc-f5e999f7-4 hcgLJO",
+  "x": 1092,
+  "y": 316,
+  "w": 53,
+  "h": 20
+ }
+]
+clicked approve at 1194 326
+poll 0 s vids 0
+poll 10 s vids 0
+videoSrc: https://labs.google/fx/api/trpc/media.getMediaUrlRedirect?name=f83e747f-0966-4952-ab78-ac16db4df9f6
+DOWNLOAD: /root/.openclaw/workspace/AUTOMATION-LABGOOGLE/out/flow-video-1782955040605.mp4

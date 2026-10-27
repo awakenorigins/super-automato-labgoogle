@@ -1,0 +1,34 @@
+{
+  "apiCallsSeen": [
+    "GET https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Google+Sans:wght@400;500;600;700&family=Google+ -> 200",
+    "GET https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Round|Material+Symbols+Outlined|Mat -> 200",
+    "GET https://fonts.googleapis.com/css2?family=Google+Symbols:FILL,wght@0..1,100..700&display=block -> 200",
+    "POST https://aisandbox-pa.googleapis.com/v1:fetchUserRecommendations -> 401",
+    "GET https://aisandbox-pa.googleapis.com/v1/credits?key=GOOGLE_API_KEY_REDACTED -> 401",
+    "POST https://aisandbox-pa.googleapis.com/v1:checkAppAvailability -> 200",
+    "GET https://labs.google/fx/api/auth/session -> 200",
+    "POST https://labs.google/fx/api/trpc/general.submitBatchLog -> 401",
+    "GET https://labs.google/fx/api/trpc/project.searchUserProjects?input=%7B%22json%22%3A%7B%22pageSize%22%3A20%2C%22toolName%22%3A%22PINH -> 401",
+    "GET https://labs.google/fx/api/trpc/general.fetchUserLocale?input=%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefine -> 401",
+    "GET https://labs.google/fx/api/trpc/general.fetchUserPreferences?input=%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22und -> 401",
+    "GET https://labs.google/fx/api/trpc/videoFx.getFlowAppConfig?input=%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefin -> 401",
+    "GET https://labs.google/fx/api/trpc/general.fetchToolAvailability?input=%7B%22json%22%3A%7B%22tool%22%3A%22PINHOLE%22%7D%7D -> 401",
+    "GET https://labs.google/fx/api/trpc/general.fetchUserAcknowledgement?input=%7B%22json%22%3A%7B%22toolName%22%3A%22PINHOLE%22%7D%7D -> 401",
+    "GET https://labs.google/fx/api/auth/providers -> 200",
+    "GET https://labs.google/fx/api/trpc/general.fetchUserAcknowledgement?input=%7B%22json%22%3A%7B%22acknowledgementVersion%22%3A%22CREATI -> 401",
+    "POST https://aisandbox-pa.googleapis.com/v1/flow:batchLogFrontendEvents -> 401",
+    "GET https://labs.google/fx/api/auth/csrf -> 200",
+    "POST https://labs.google/fx/api/auth/signin/google -> 200",
+    "GET https://labs.google/fx/api/trpc/videoFx.getFlowAppConfig?input=%7B%22json%22%3Anull%2C%22meta%22%3A%7B%22values%22%3A%5B%22undefin -> 401",
+    "GET https://labs.google/fx/api/trpc/project.searchUserProjects?input=%7B%22json%22%3A%7B%22pageSize%22%3A20%2C%22toolName%22%3A%22PINH -> 401",
+    "GET https://accounts.google.com/o/oauth2/v2/auth?client_id=365941595420-v51i7q8ik0crmaoltkhuo5ogb1kekl6f.apps.googleusercontent.com&sc -> 302",
+    "GET https://accounts.google.com/fx/api/auth/session -> 404",
+    "GET https://accounts.google.com/fx/api/auth/session -> 404"
+  ],
+  "flowUrl": "https://accounts.google.com/v3/signin/accountchooser?continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Flegacy%2Fconsen",
+  "pageSession": null,
+  "apiTry": {
+    "err": "no-token",
+    "b64": null
+  }
+}

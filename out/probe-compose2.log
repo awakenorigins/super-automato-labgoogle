@@ -1,0 +1,78 @@
+[
+ {
+  "tag": "INPUT",
+  "type": "text",
+  "aria": "Editable text",
+  "ph": null,
+  "ce": null,
+  "x": 80,
+  "y": 26,
+  "w": 121,
+  "h": 24,
+  "display": "block",
+  "vis": "visible",
+  "parentCls": "sc-57873d76-0 hmWfbj sc-7cbbf1fc-3 bHDuBm"
+ },
+ {
+  "tag": "INPUT",
+  "type": "text",
+  "aria": null,
+  "ph": null,
+  "ce": null,
+  "x": 459,
+  "y": 19,
+  "w": 370,
+  "h": 38,
+  "display": "flex",
+  "vis": "visible",
+  "parentCls": "sc-eed1ec57-1 icDAfH"
+ },
+ {
+  "tag": "DIV",
+  "type": null,
+  "aria": null,
+  "ph": null,
+  "ce": "true",
+  "x": 1060,
+  "y": 794,
+  "w": 254,
+  "h": 20,
+  "display": "block",
+  "vis": "visible",
+  "parentCls": "sc-26b30722-3 kezgTH"
+ },
+ {
+  "tag": "INPUT",
+  "type": "file",
+  "aria": null,
+  "ph": null,
+  "ce": null,
+  "x": 0,
+  "y": 0,
+  "w": 0,
+  "h": 0,
+  "display": "none",
+  "vis": "visible",
+  "parentCls": "sc-b818c8a-1 gnPjEi"
+ },
+ {
+  "tag": "TEXTAREA",
+  "type": null,
+  "aria": null,
+  "ph": null,
+  "ce": null,
+  "x": 0,
+  "y": 0,
+  "w": 0,
+  "h": 0,
+  "display": "none",
+  "vis": "hidden",
+  "parentCls": "grecaptcha-badge"
+ }
+]
+composer hint: {"x":1195,"y":804,"text":"What do you want to create?"}
+activeAfterType: {"tag":"BODY","aria":null,"value":"arrow_back\nGo Back\nmore_vert\nMore options\nsearch\nSearch\nfilter_list\nSort & Filte"}
+create-click-err TimeoutError: locator.click: Timeout 8000ms exceeded.
+Call log:
+  - waiting for locator('button:has-text("arrow_forwardC
+after-submit: {"url":"https://labs.google/fx/tools/flow/project/fc09a7a6-65ec-4c60-8a13-0c6d4a82e624","vids":0,"body":"arrow_back Go Back more_vert More options search Search filter_list Sort & Filter add Add Media help Product Help settings_2 View Settings more_vert More ULTRA dashboard All Media All Media accessibility_new Characters Characters movie View scenes Scenes apps_spark_2 Tools Tools delete View Trash Trash left_panel_close Collapse Collapse Start creating or drop media menu History Untitled session edit_square New session close Close Hi From What would you like to do? Brainstorm with me Generate con"}

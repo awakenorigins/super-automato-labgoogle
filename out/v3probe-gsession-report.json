@@ -1,0 +1,10 @@
+{
+  "youtube": {
+    "signedIn": false,
+    "hasSignInBtn": true
+  },
+  "notebooklm": {
+    "url": "https://accounts.google.com/v3/signin/accountchooser?continue=https%3A%2F%2Fnotebooklm.google.com%2Flogin%3Fcontinue%3Dh",
+    "authWall": true
+  }
+}
